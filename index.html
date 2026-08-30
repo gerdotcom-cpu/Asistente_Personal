@@ -37,12 +37,12 @@ body {
 .app {
   display: grid;
   grid-template-columns: 118px minmax(0, 1fr) 360px;
-  gap: 16px;
+  gap: 18px;
 
   width: 100vw;
   height: 100vh;
 
-  padding: 14px;
+  padding: 18px;
 }
 
 
@@ -52,9 +52,9 @@ body {
 
 .sidebar {
 
-  height: calc(100vh - 28px);
+  height: calc(100vh - 36px);
 
-  border-radius: 30px;
+  border-radius: 34px;
 
   background:
     radial-gradient(
@@ -79,7 +79,7 @@ body {
   overflow: hidden;
 
   box-shadow:
-    0 8px 28px rgba(0,0,0,.10);
+    0 10px 30px rgba(0,0,0,.12);
 }
 
 
@@ -158,11 +158,9 @@ body {
 
 .nav-item.active {
 
-  background:
-    rgba(255,255,255,.07);
+  background: rgba(255,255,255,.07);
 
-  border-left:
-    3px solid #c69d52;
+  border-left: 3px solid #c69d52;
 
   color: #d6b268;
 }
@@ -170,8 +168,7 @@ body {
 
 .nav-item:hover {
 
-  background:
-    rgba(255,255,255,.05);
+  background: rgba(255,255,255,.05);
 }
 
 
@@ -185,8 +182,7 @@ body {
 
   padding-top: 18px;
 
-  border-top:
-    1px solid rgba(255,255,255,.08);
+  border-top: 1px solid rgba(255,255,255,.08);
 
   display: flex;
   justify-content: center;
@@ -213,7 +209,7 @@ body {
   min-width: 0;
   min-height: 0;
 
-  height: calc(100vh - 28px);
+  height: calc(100vh - 36px);
 }
 
 
@@ -224,10 +220,9 @@ body {
 
   background: white;
 
-  border:
-    1px solid #e4e4e0;
+  border: 1px solid #e4e4e0;
 
-  border-radius: 26px;
+  border-radius: 28px;
 
   overflow: hidden;
 
@@ -238,13 +233,13 @@ body {
 }
 
 
-/* MARCA */
+/* NOMBRE SINGULARITY */
 
 .chat-brand {
 
   position: absolute;
 
-  top: 18px;
+  top: 24px;
   left: 30px;
 
   z-index: 30;
@@ -265,6 +260,35 @@ body {
 
   width: 100%;
   height: 100%;
+}
+
+
+/* =================================
+   OCULTAR BARRA SUPERIOR N8N
+================================= */
+
+#n8n-chat .chat-header {
+  display: none !important;
+}
+
+#n8n-chat header {
+  display: none !important;
+}
+
+#n8n-chat .chat-layout .chat-header {
+  display: none !important;
+}
+
+
+/* CHAT OCUPA TODO EL PANEL */
+
+#n8n-chat .chat-body {
+  height: 100% !important;
+  padding-top: 0 !important;
+}
+
+#n8n-chat .chat-wrapper {
+  height: 100% !important;
 }
 
 
@@ -310,7 +334,7 @@ body {
 
   min-height: 0;
 
-  height: calc(100vh - 28px);
+  height: calc(100vh - 36px);
 
   display: flex;
   flex-direction: column;
@@ -331,8 +355,7 @@ body {
 
   background: white;
 
-  border:
-    1px solid #e4e4e0;
+  border: 1px solid #e4e4e0;
 
   border-radius: 22px;
 
@@ -360,7 +383,9 @@ body {
 }
 
 
-/* CLIMA */
+/* =================================
+   CLIMA
+================================= */
 
 .weather-main {
 
@@ -398,8 +423,7 @@ body {
 
   display: grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   gap: 8px;
 
@@ -409,14 +433,15 @@ body {
 }
 
 
-/* NOTICIAS */
+/* =================================
+   NOTICIAS
+================================= */
 
 .news-item {
 
   padding: 10px 0;
 
-  border-bottom:
-    1px solid #eeeeeb;
+  border-bottom: 1px solid #eeeeeb;
 }
 
 
@@ -446,21 +471,21 @@ body {
 }
 
 
-/* MERCADOS */
+/* =================================
+   MERCADOS
+================================= */
 
 .market-row {
 
   display: grid;
 
-  grid-template-columns:
-    1fr auto auto;
+  grid-template-columns: 1fr auto auto;
 
   gap: 10px;
 
   padding: 10px 0;
 
-  border-bottom:
-    1px solid #eeeeeb;
+  border-bottom: 1px solid #eeeeeb;
 
   font-size: 12px;
 }
@@ -488,9 +513,9 @@ body {
 
   position: fixed;
 
-  right: 392px;
+  right: 400px;
 
-  bottom: 34px;
+  bottom: 42px;
 
   width: 56px;
   height: 56px;
@@ -540,15 +565,15 @@ body {
   .app {
 
     grid-template-columns:
-      100px minmax(0,1fr) 310px;
+      105px minmax(0,1fr) 310px;
 
-    gap: 12px;
+    gap: 14px;
   }
 
 
   #voiceButton {
 
-    right: 335px;
+    right: 350px;
   }
 }
 
@@ -558,7 +583,7 @@ body {
   .app {
 
     grid-template-columns:
-      90px minmax(0,1fr);
+      95px minmax(0,1fr);
   }
 
 
@@ -570,7 +595,7 @@ body {
 
   #voiceButton {
 
-    right: 34px;
+    right: 38px;
   }
 }
 
@@ -605,6 +630,7 @@ body {
 }
 
 </style>
+
 </head>
 
 
@@ -614,7 +640,9 @@ body {
 <div class="app">
 
 
-<!-- SIDEBAR -->
+<!-- =================================
+     SIDEBAR
+================================= -->
 
 <aside class="sidebar">
 
@@ -677,7 +705,9 @@ body {
 
 
 
-<!-- CENTRO -->
+<!-- =================================
+     CHAT CENTRAL
+================================= -->
 
 <main class="center">
 
@@ -695,7 +725,9 @@ body {
 
 
 
-<!-- WIDGETS -->
+<!-- =================================
+     WIDGETS
+================================= -->
 
 <aside class="widgets">
 
@@ -708,6 +740,7 @@ body {
       ☀ CLIMA
     </div>
 
+
     <div class="weather-main">
 
       <div
@@ -716,6 +749,7 @@ body {
       >
         --
       </div>
+
 
       <div
         class="weather-icon"
@@ -868,6 +902,10 @@ body {
 </div>
 
 
+
+<!-- =================================
+     MICRÓFONO
+================================= -->
 
 <button
   id="voiceButton"
