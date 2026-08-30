@@ -21,17 +21,19 @@
     }
 
     #voiceButton {
-      position: fixed;
-      right: 24px;
-      bottom: 82px;
-      width: 56px;
-      height: 56px;
-      border: none;
-      border-radius: 50%;
-      font-size: 25px;
-      cursor: pointer;
-      z-index: 99999;
-      box-shadow: 0 4px 14px rgba(0,0,0,.20);
+      position: fixed !important;
+      right: 24px !important;
+      bottom: 90px !important;
+      width: 60px !important;
+      height: 60px !important;
+      border: none !important;
+      border-radius: 50% !important;
+      background: white !important;
+      color: black !important;
+      font-size: 28px !important;
+      cursor: pointer !important;
+      z-index: 2147483647 !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,.30) !important;
     }
 
     #voiceButton.listening {
@@ -103,6 +105,7 @@
     if (!SpeechRecognition) {
 
       boton.disabled = true;
+
       boton.title =
         'Este navegador no soporta reconocimiento de voz';
 
@@ -149,8 +152,11 @@
           const enviar = buscarBotonEnviar();
 
           if (enviar) {
+
             enviar.click();
+
           } else {
+
             input.dispatchEvent(
               new KeyboardEvent('keydown', {
                 key: 'Enter',
@@ -158,6 +164,7 @@
                 bubbles: true
               })
             );
+
           }
 
         }, 300);
@@ -231,6 +238,3 @@
     );
 
   </script>
-
-</body>
-</html>
