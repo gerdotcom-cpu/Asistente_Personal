@@ -1,20 +1,53 @@
-  mode: 'fullscreen',
-    loadPreviousSession: false,
-    defaultLanguage: 'es',
-    initialMessages: [
-      'Hola, soy tu asistente personal. ¿En qué puedo ayudarte?'
-    ],
-    i18n: {
-      es: {
-        title: 'Asistente Personal',
-        subtitle: '',
-        footer: '',
-        getStarted: 'Nueva conversación',
-        inputPlaceholder: 'Escribí tu mensaje...'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Asistente Personal</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+  <div id="n8n-chat"></div>
+
+  <script type="module">
+
+    import { createChat }
+    from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
+
+      target: '#n8n-chat',
+
+      mode: 'fullscreen',
+
+      loadPreviousSession: false,
+
+      defaultLanguage: 'es',
+
+      initialMessages: [
+        'Hola, soy tu asistente personal. ¿En qué puedo ayudarte?'
+      ],
+
+      i18n: {
+        es: {
+          title: 'Asistente Personal',
+          subtitle: '',
+          footer: '',
+          getStarted: 'Nueva conversación',
+          inputPlaceholder: 'Escribí tu mensaje...'
+        }
       }
-    }
-  });
-</script>
+    });
+
+  </script>
 
 </body>
 </html>
