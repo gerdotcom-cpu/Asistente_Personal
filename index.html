@@ -1,743 +1,1122 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SOL · Asistente Personal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link
-    href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
-    rel="stylesheet"
-  >
+<title>Singularity</title>
 
-  <style>
+<link
+  href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
+  rel="stylesheet"
+/>
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
 
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f4f1;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      display: flex;
-    }
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f2;
+  color: #171717;
+}
 
 
-    /* =========================
-       SIDEBAR
-       ========================= */
+/* =========================
+   ESTRUCTURA
+========================= */
 
-    .sidebar {
-      width: 350px;
-      min-width: 350px;
-      height: 100vh;
+.app {
+  display: grid;
+  grid-template-columns: 94px minmax(600px, 1fr) 330px;
+  width: 100vw;
+  height: 100vh;
+}
 
-      background:
-        radial-gradient(
-          circle at 70% 5%,
-          rgba(190,160,115,.20),
-          transparent 28%
-        ),
-        linear-gradient(
-          155deg,
-          #292824 0%,
-          #191a19 45%,
-          #111312 100%
-        );
 
-      color: white;
+/* =========================
+   SIDEBAR
+========================= */
 
-      display: flex;
-      flex-direction: column;
+.sidebar {
 
-      padding: 42px 30px 30px;
+  background:
+    linear-gradient(
+      180deg,
+      #101516 0%,
+      #07131b 100%
+    );
 
-      position: relative;
-      overflow: hidden;
-    }
+  color: white;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    /* detalle arquitectónico */
+  padding: 22px 12px;
 
-    .sidebar::before {
-      content: "";
+  border-right: 1px solid rgba(255,255,255,.05);
+}
 
-      position: absolute;
 
-      width: 420px;
-      height: 230px;
+.logo {
 
-      top: -80px;
-      left: 40px;
+  width: 54px;
+  height: 54px;
 
-      background:
-        linear-gradient(
-          125deg,
-          transparent 30%,
-          rgba(230,220,200,.13) 31%,
-          rgba(230,220,200,.04) 55%,
-          transparent 56%
-        );
+  border: 1px solid #b89553;
+  border-radius: 50%;
 
-      transform: rotate(-8deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      pointer-events: none;
-    }
+  margin-bottom: 12px;
 
+  color: #d1ad68;
 
-    /* =========================
-       MARCA SOL
-       ========================= */
+  font-size: 22px;
 
-    .brand {
-      position: relative;
-      z-index: 2;
+  box-shadow:
+    0 0 22px rgba(195,158,89,.15);
+}
 
-      margin-bottom: 55px;
-    }
 
+.logo-text {
 
-    .sol-logo {
-      width: 68px;
-      height: 68px;
+  font-size: 9px;
 
-      border: 2px solid #c9ad7d;
-      border-radius: 50%;
+  letter-spacing: 2px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  color: #d1ad68;
 
-      margin-bottom: 20px;
+  margin-bottom: 30px;
+}
 
-      color: #dbc398;
 
-      font-size: 30px;
-      font-weight: 300;
+.nav {
 
-      box-shadow:
-        0 0 0 7px rgba(201,173,125,.05),
-        0 0 30px rgba(201,173,125,.08);
-    }
+  width: 100%;
 
+  display: flex;
+  flex-direction: column;
 
-    .brand-name {
-      font-size: 36px;
-      font-weight: 300;
+  gap: 11px;
+}
 
-      letter-spacing: 10px;
 
-      line-height: 1;
-    }
+.nav-item {
 
+  width: 66px;
+  height: 58px;
 
-    .brand-subtitle {
-      margin-top: 12px;
+  margin: auto;
 
-      font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      letter-spacing: 3px;
+  border-radius: 13px;
 
-      color: #c9ad7d;
-    }
+  font-size: 25px;
 
+  color: #f3f3f3;
 
-    /* =========================
-       MENÚ
-       ========================= */
+  opacity: .85;
+}
 
-    .menu {
-      position: relative;
-      z-index: 2;
 
-      display: flex;
-      flex-direction: column;
+.nav-item.active {
 
-      gap: 7px;
-    }
+  background: rgba(255,255,255,.08);
 
+  color: #d6ad62;
 
-    .menu-item {
-      height: 62px;
+  box-shadow:
+    inset 3px 0 0 #c69e55;
+}
 
-      padding: 0 18px;
 
-      border-radius: 15px;
+.nav-item:hover {
 
-      display: flex;
-      align-items: center;
+  background: rgba(255,255,255,.06);
+}
 
-      gap: 17px;
 
-      color: #eeeeec;
+.sidebar-bottom {
 
-      font-size: 16px;
-    }
+  margin-top: auto;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    .menu-item.active {
-      background: rgba(255,255,255,.10);
+  gap: 14px;
+}
 
-      color: white;
 
-      font-weight: 600;
-    }
+.online-dot {
 
+  width: 9px;
+  height: 9px;
 
-    .menu-icon {
-      width: 28px;
+  border-radius: 50%;
 
-      text-align: center;
+  background: #59cc65;
+}
 
-      font-size: 21px;
 
-      color: #d6d6d2;
-    }
+/* =========================
+   CHAT CENTRAL
+========================= */
 
+.center {
 
-    .menu-item.active .menu-icon {
-      color: #d7bb88;
-    }
+  background: #f7f7f5;
 
+  padding: 22px 18px 22px 22px;
 
-    /* =========================
-       ESTADO
-       ========================= */
+  min-width: 0;
+}
 
-    .status {
-      margin-top: auto;
 
-      padding: 24px 10px 0;
+.chat-card {
 
-      border-top: 1px solid rgba(255,255,255,.15);
+  width: 100%;
+  height: 100%;
 
-      position: relative;
-      z-index: 2;
-    }
+  background: white;
 
+  border: 1px solid #e5e5e1;
 
-    .status-main {
-      display: flex;
+  border-radius: 22px;
 
-      align-items: center;
+  overflow: hidden;
 
-      gap: 12px;
+  position: relative;
 
-      font-weight: 600;
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.035);
+}
 
-      font-size: 15px;
-    }
 
+.chat-brand {
 
-    .status-dot {
-      width: 10px;
-      height: 10px;
+  position: absolute;
 
-      border-radius: 50%;
+  top: 22px;
+  left: 28px;
 
-      background: #65d05d;
-    }
+  z-index: 20;
 
+  font-size: 18px;
 
-    .status-sub {
-      margin-top: 8px;
-      margin-left: 22px;
+  letter-spacing: 7px;
 
-      font-size: 12px;
+  color: #171717;
 
-      color: #a9aaa7;
-    }
+  pointer-events: none;
+}
 
 
-    /* =========================
-       DERECHA
-       ========================= */
+#n8n-chat {
 
-    .main {
-      flex: 1;
+  width: 100%;
+  height: 100%;
+}
 
-      height: 100vh;
 
-      padding: 28px;
+/* COLORES DEL CHAT N8N */
 
-      background: #f7f7f5;
-    }
+:root {
 
+  --chat--color-primary: #121a20;
 
-    .chat-shell {
-      width: 100%;
-      height: 100%;
+  --chat--color-primary-shade-50: #0d1419;
 
-      background: white;
+  --chat--color-primary-shade-100: #080d11;
 
-      border: 1px solid #e1e0dc;
+  --chat--color-secondary: #b58c49;
 
-      border-radius: 24px;
+  --chat--color-white: #ffffff;
 
-      overflow: hidden;
+  --chat--color-light: #f5f5f3;
 
-      box-shadow:
-        0 15px 40px rgba(0,0,0,.045);
+  --chat--color-light-shade-50: #ecece9;
 
-      position: relative;
-    }
+  --chat--color-light-shade-100: #deded9;
 
+  --chat--color-medium: #aaa9a4;
 
-    #n8n-chat {
-      width: 100%;
-      height: 100%;
-    }
+  --chat--color-dark: #171717;
 
+  --chat--border-radius: 12px;
 
-    /* =========================
-       AJUSTES VISUALES N8N
-       ========================= */
+  --chat--window--width: 100%;
 
-    :root {
+  --chat--window--height: 100%;
+}
 
-      --chat--color-primary: #1b1c1b;
-      --chat--color-primary-shade-50: #111312;
-      --chat--color-primary-shade-100: #000000;
 
-      --chat--color-secondary: #c3a574;
+/* =========================
+   WIDGETS DERECHA
+========================= */
 
-      --chat--color-white: #ffffff;
+.widgets {
 
-      --chat--color-light: #f5f5f3;
-      --chat--color-light-shade-50: #eeeeeb;
-      --chat--color-light-shade-100: #deded9;
+  height: 100vh;
 
-      --chat--color-medium: #a8a8a3;
-      --chat--color-dark: #171817;
+  padding: 22px 20px 22px 0;
 
-      --chat--border-radius: 12px;
+  background: #f4f4f2;
 
-      --chat--window--width: 100%;
-      --chat--window--height: 100%;
-    }
+  display: flex;
+  flex-direction: column;
 
+  gap: 14px;
 
-    /* =========================
-       MICRÓFONO
-       ========================= */
+  overflow-y: auto;
+}
 
-    #voiceButton {
 
-      position: fixed;
+.widget {
 
-      right: 52px;
-      bottom: 46px;
+  background: white;
 
-      width: 58px;
-      height: 58px;
+  border: 1px solid #e4e4e0;
 
-      border: 0;
+  border-radius: 18px;
 
-      border-radius: 50%;
+  padding: 18px;
 
-      background: #171817;
+  box-shadow:
+    0 6px 24px rgba(0,0,0,.035);
+}
 
-      color: white;
 
-      font-size: 25px;
+.widget-title {
 
-      cursor: pointer;
+  display: flex;
 
-      z-index: 2147483647;
+  align-items: center;
 
-      box-shadow:
-        0 7px 22px rgba(0,0,0,.22);
+  gap: 9px;
 
-      transition:
-        transform .15s ease,
-        box-shadow .15s ease;
-    }
+  margin-bottom: 16px;
 
+  font-size: 13px;
 
-    #voiceButton:hover {
+  font-weight: 700;
 
-      transform: translateY(-2px);
+  letter-spacing: .4px;
+}
 
-      box-shadow:
-        0 10px 28px rgba(0,0,0,.25);
-    }
 
+/* CLIMA */
 
-    #voiceButton.listening {
+.weather-main {
 
-      transform: scale(1.08);
+  display: flex;
 
-      background: #9f3434;
-    }
+  align-items: center;
 
+  justify-content: space-between;
 
-    /* =========================
-       MOBILE
-       ========================= */
+  margin-bottom: 8px;
+}
 
-    @media (max-width: 850px) {
 
-      .sidebar {
-        display: none;
-      }
+.weather-temp {
 
-      .main {
-        padding: 0;
-      }
+  font-size: 44px;
 
-      .chat-shell {
-        border-radius: 0;
-        border: 0;
-      }
+  font-weight: 500;
+}
 
-      #voiceButton {
-        right: 18px;
-        bottom: 20px;
-      }
-    }
 
-  </style>
+.weather-icon {
+
+  font-size: 40px;
+}
+
+
+.weather-description {
+
+  font-size: 14px;
+
+  margin-bottom: 15px;
+}
+
+
+.weather-info {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  font-size: 12px;
+
+  color: #666;
+}
+
+
+/* NOTICIAS */
+
+.news-item {
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid #eeeeeb;
+}
+
+
+.news-item:last-child {
+
+  border-bottom: none;
+}
+
+
+.news-title {
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.35;
+}
+
+
+.news-meta {
+
+  margin-top: 4px;
+
+  font-size: 11px;
+
+  color: #888;
+}
+
+
+/* MERCADOS */
+
+.market-row {
+
+  display: grid;
+
+  grid-template-columns: 1fr auto auto;
+
+  gap: 10px;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid #eeeeeb;
+
+  font-size: 12px;
+}
+
+
+.market-row:last-child {
+
+  border-bottom: none;
+}
+
+
+.market-change {
+
+  color: #168443;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   BOTÓN VOZ
+========================= */
+
+#voiceButton {
+
+  position: fixed;
+
+  right: 370px;
+
+  bottom: 42px;
+
+  width: 52px;
+  height: 52px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #11191f;
+
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  z-index: 2147483647;
+
+  box-shadow:
+    0 7px 22px rgba(0,0,0,.20);
+}
+
+
+#voiceButton.listening {
+
+  background: #a53a35;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1150px) {
+
+  .app {
+    grid-template-columns: 84px 1fr;
+  }
+
+  .widgets {
+    display: none;
+  }
+
+  #voiceButton {
+    right: 32px;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .app {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .center {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .chat-card {
+    border-radius: 0;
+  }
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-  <!-- SIDEBAR -->
+<div class="app">
 
-  <aside class="sidebar">
 
-    <div class="brand">
+<!-- =====================
+     SIDEBAR
+===================== -->
 
-      <div class="sol-logo">
-        S
+<aside class="sidebar">
+
+  <div class="logo">
+    ◎
+  </div>
+
+  <div class="logo-text">
+    SINGULARITY
+  </div>
+
+
+  <div class="nav">
+
+    <div class="nav-item active" title="Chat">
+      ◌
+    </div>
+
+    <div class="nav-item" title="Seguimiento To Do">
+      ✓
+    </div>
+
+    <div class="nav-item" title="Gestión de agenda">
+      ◫
+    </div>
+
+    <div class="nav-item" title="Gestión de correos">
+      ✉
+    </div>
+
+    <div class="nav-item" title="Contactos">
+      ♙
+    </div>
+
+    <div class="nav-item" title="Acciones">
+      ⚡
+    </div>
+
+    <div class="nav-item" title="Configuración">
+      ⚙
+    </div>
+
+  </div>
+
+
+  <div class="sidebar-bottom">
+
+    <div class="online-dot"></div>
+
+  </div>
+
+</aside>
+
+
+
+<!-- =====================
+     CHAT
+===================== -->
+
+<main class="center">
+
+  <div class="chat-card">
+
+    <div class="chat-brand">
+      SINGULARITY
+    </div>
+
+    <div id="n8n-chat"></div>
+
+  </div>
+
+</main>
+
+
+
+<!-- =====================
+     WIDGETS
+===================== -->
+
+<aside class="widgets">
+
+
+  <!-- CLIMA -->
+
+  <section class="widget">
+
+    <div class="widget-title">
+      ☀ CLIMA
+    </div>
+
+    <div class="weather-main">
+
+      <div class="weather-temp" id="weatherTemp">
+        --
       </div>
 
-      <div class="brand-name">
-        SOL
-      </div>
-
-      <div class="brand-subtitle">
-        ASISTENTE PERSONAL
+      <div class="weather-icon" id="weatherIcon">
+        ☀
       </div>
 
     </div>
 
+    <div
+      class="weather-description"
+      id="weatherDescription"
+    >
+      Cargando clima...
+    </div>
 
-    <nav class="menu">
+    <div class="weather-info">
 
-      <div class="menu-item active">
-        <div class="menu-icon">◫</div>
-        <div>Chat</div>
+      <div>
+        Ciudad de México
       </div>
 
-      <div class="menu-item">
-        <div class="menu-icon">✓</div>
-        <div>Seguimiento To Do</div>
+      <div id="weatherWind">
+        Viento --
       </div>
 
-      <div class="menu-item">
-        <div class="menu-icon">☷</div>
-        <div>Seguimiento Acciones</div>
+      <div id="weatherMax">
+        Máx. --
       </div>
 
-      <div class="menu-item">
-        <div class="menu-icon">✉</div>
-        <div>Gestión de correos</div>
+      <div id="weatherMin">
+        Mín. --
       </div>
 
-      <div class="menu-item">
-        <div class="menu-icon">▣</div>
-        <div>Gestión de agenda</div>
-      </div>
+    </div>
 
-    </nav>
+  </section>
 
 
-    <div class="status">
 
-      <div class="status-main">
+  <!-- NOTICIAS -->
 
-        <div class="status-dot"></div>
+  <section class="widget">
 
-        <div>
-          Conectado
+    <div class="widget-title">
+      ▤ NOTICIAS DESTACADAS
+    </div>
+
+    <div id="news">
+
+      <div class="news-item">
+
+        <div class="news-title">
+          Noticias generales
+        </div>
+
+        <div class="news-meta">
+          Widget preparado para conexión
         </div>
 
       </div>
 
-      <div class="status-sub">
-        SOL está activo
+      <div class="news-item">
+
+        <div class="news-title">
+          Inteligencia artificial y tecnología
+        </div>
+
+        <div class="news-meta">
+          Próxima integración
+        </div>
+
+      </div>
+
+      <div class="news-item">
+
+        <div class="news-title">
+          Economía y mercados
+        </div>
+
+        <div class="news-meta">
+          Próxima integración
+        </div>
+
       </div>
 
     </div>
 
-  </aside>
+  </section>
 
 
 
-  <!-- CHAT -->
+  <!-- MERCADOS -->
 
-  <main class="main">
+  <section class="widget">
 
-    <div class="chat-shell">
-
-      <div id="n8n-chat"></div>
-
+    <div class="widget-title">
+      ↗ BOLSA / MERCADOS
     </div>
 
-  </main>
+    <div class="market-row">
+      <span>S&P 500</span>
+      <span>—</span>
+      <span class="market-change">—</span>
+    </div>
+
+    <div class="market-row">
+      <span>NASDAQ</span>
+      <span>—</span>
+      <span class="market-change">—</span>
+    </div>
+
+    <div class="market-row">
+      <span>Dow Jones</span>
+      <span>—</span>
+      <span class="market-change">—</span>
+    </div>
+
+    <div class="market-row">
+      <span>IPC México</span>
+      <span>—</span>
+      <span class="market-change">—</span>
+    </div>
+
+  </section>
+
+</aside>
+
+
+</div>
 
 
 
-  <!-- VOZ -->
-
-  <button
-    id="voiceButton"
-    title="Hablar"
-  >
-    🎤
-  </button>
+<button
+  id="voiceButton"
+  title="Hablar"
+>
+🎤
+</button>
 
 
 
-  <script type="module">
+<script type="module">
 
-    import { createChat } from
-      'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+import { createChat } from
+'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
 
-    /* =========================
-       CHAT N8N
-       ========================= */
+/* =====================
+   CHAT N8N
+===================== */
 
-    createChat({
+createChat({
 
-      webhookUrl:
-        'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
+  webhookUrl:
+  'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
 
-      target: '#n8n-chat',
+  target: '#n8n-chat',
 
-      mode: 'fullscreen',
+  mode: 'fullscreen',
 
-      loadPreviousSession: false,
+  loadPreviousSession: false,
 
-      defaultLanguage: 'es',
+  defaultLanguage: 'es',
 
-      initialMessages: [
-        'Hola, soy SOL. ¿En qué puedo ayudarte?'
-      ],
+  initialMessages: [
+    'Hola, soy Singularity. ¿En qué puedo ayudarte?'
+  ],
 
-      i18n: {
+  i18n: {
 
-        es: {
+    es: {
 
-          title: 'SOL',
+      title: '',
 
-          subtitle: '',
+      subtitle: '',
 
-          footer: '',
+      footer: '',
 
-          getStarted: 'Nueva conversación',
+      getStarted: 'Nueva conversación',
 
-          inputPlaceholder:
-            'Escribí o hablá con SOL...'
+      inputPlaceholder:
+      'Escribí o hablá con Singularity...'
+
+    }
+
+  }
+
+});
+
+
+
+/* =====================
+   CLIMA REAL
+===================== */
+
+async function cargarClima() {
+
+  try {
+
+    const url =
+    'https://api.open-meteo.com/v1/forecast?latitude=19.4326&longitude=-99.1332&current=temperature_2m,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=America%2FMexico_City';
+
+    const response =
+      await fetch(url);
+
+    const data =
+      await response.json();
+
+
+    const temperatura =
+      Math.round(
+        data.current.temperature_2m
+      );
+
+
+    document.getElementById(
+      'weatherTemp'
+    ).textContent =
+      temperatura + '°C';
+
+
+    document.getElementById(
+      'weatherWind'
+    ).textContent =
+      'Viento ' +
+      Math.round(
+        data.current.wind_speed_10m
+      ) +
+      ' km/h';
+
+
+    document.getElementById(
+      'weatherMax'
+    ).textContent =
+      'Máx. ' +
+      Math.round(
+        data.daily.temperature_2m_max[0]
+      ) +
+      '°';
+
+
+    document.getElementById(
+      'weatherMin'
+    ).textContent =
+      'Mín. ' +
+      Math.round(
+        data.daily.temperature_2m_min[0]
+      ) +
+      '°';
+
+
+    const code =
+      data.current.weather_code;
+
+
+    let descripcion =
+      'Despejado';
+
+    let icono =
+      '☀';
+
+
+    if (code >= 1 && code <= 3) {
+
+      descripcion =
+        'Parcialmente nublado';
+
+      icono =
+        '⛅';
+
+    }
+
+
+    if (code >= 45 && code <= 48) {
+
+      descripcion =
+        'Neblina';
+
+      icono =
+        '☁';
+
+    }
+
+
+    if (code >= 51) {
+
+      descripcion =
+        'Lluvia';
+
+      icono =
+        '🌧';
+
+    }
+
+
+    document.getElementById(
+      'weatherDescription'
+    ).textContent =
+      descripcion;
+
+
+    document.getElementById(
+      'weatherIcon'
+    ).textContent =
+      icono;
+
+  }
+
+  catch (error) {
+
+    document.getElementById(
+      'weatherDescription'
+    ).textContent =
+      'Clima no disponible';
+
+  }
+
+}
+
+
+cargarClima();
+
+
+
+/* =====================
+   VOZ
+===================== */
+
+const boton =
+document.getElementById(
+  'voiceButton'
+);
+
+
+const SpeechRecognition =
+window.SpeechRecognition ||
+window.webkitSpeechRecognition;
+
+
+function buscarInput() {
+
+  return document.querySelector(
+    '#n8n-chat textarea, #n8n-chat input[type="text"]'
+  );
+
+}
+
+
+function buscarEnviar() {
+
+  return document.querySelector(
+    '#n8n-chat button[type="submit"]'
+  );
+
+}
+
+
+if (!SpeechRecognition) {
+
+  boton.disabled = true;
+
+}
+
+else {
+
+  const recognition =
+  new SpeechRecognition();
+
+
+  recognition.lang =
+    'es-MX';
+
+  recognition.continuous =
+    false;
+
+  recognition.interimResults =
+    false;
+
+
+  boton.onclick =
+  () => {
+
+    boton.textContent =
+      '●';
+
+    boton.classList.add(
+      'listening'
+    );
+
+    recognition.start();
+
+  };
+
+
+  recognition.onresult =
+  event => {
+
+    const mensaje =
+    event.results[0][0]
+    .transcript;
+
+
+    const input =
+    buscarInput();
+
+
+    if (!input)
+      return;
+
+
+    input.value =
+      mensaje;
+
+
+    input.dispatchEvent(
+      new Event(
+        'input',
+        {
+          bubbles: true
+        }
+      )
+    );
+
+
+    input.dispatchEvent(
+      new Event(
+        'change',
+        {
+          bubbles: true
+        }
+      )
+    );
+
+
+    setTimeout(
+      () => {
+
+        const enviar =
+          buscarEnviar();
+
+
+        if (enviar) {
+
+          enviar.click();
 
         }
 
-      }
+        else {
 
-    });
-
-
-
-    /* =========================
-       VOZ
-       ========================= */
-
-    const boton =
-      document.getElementById('voiceButton');
-
-
-    const SpeechRecognition =
-      window.SpeechRecognition ||
-      window.webkitSpeechRecognition;
-
-
-    function buscarInput() {
-
-      return document.querySelector(
-        '#n8n-chat textarea, #n8n-chat input[type="text"]'
-      );
-
-    }
-
-
-    function buscarBotonEnviar() {
-
-      return document.querySelector(
-        '#n8n-chat button[type="submit"]'
-      );
-
-    }
-
-
-
-    if (!SpeechRecognition) {
-
-      boton.disabled = true;
-
-      boton.title =
-        'Este navegador no soporta reconocimiento de voz';
-
-    }
-
-    else {
-
-      const recognition =
-        new SpeechRecognition();
-
-
-      recognition.lang = 'es-MX';
-
-      recognition.continuous = false;
-
-      recognition.interimResults = false;
-
-
-
-      boton.addEventListener(
-        'click',
-        () => {
-
-          boton.textContent = '●';
-
-          boton.classList.add(
-            'listening'
+          input.dispatchEvent(
+            new KeyboardEvent(
+              'keydown',
+              {
+                key: 'Enter',
+                code: 'Enter',
+                bubbles: true
+              }
+            )
           );
-
-          recognition.start();
 
         }
-      );
+
+      },
+      300
+    );
+
+  };
 
 
+  recognition.onend =
+  () => {
 
-      recognition.onresult =
-        (event) => {
+    boton.textContent =
+      '🎤';
 
-          const mensaje =
-            event.results[0][0].transcript;
+    boton.classList.remove(
+      'listening'
+    );
 
-
-          const input =
-            buscarInput();
-
-
-          if (!input)
-            return;
+  };
 
 
-          input.value =
-            mensaje;
+  recognition.onerror =
+  recognition.onend;
 
+}
 
-          input.dispatchEvent(
+</script>
 
-            new Event(
-              'input',
-              {
-                bubbles: true
-              }
-            )
-
-          );
-
-
-          input.dispatchEvent(
-
-            new Event(
-              'change',
-              {
-                bubbles: true
-              }
-            )
-
-          );
-
-
-          setTimeout(
-            () => {
-
-              const enviar =
-                buscarBotonEnviar();
-
-
-              if (enviar) {
-
-                enviar.click();
-
-              }
-
-              else {
-
-                input.dispatchEvent(
-
-                  new KeyboardEvent(
-                    'keydown',
-                    {
-                      key: 'Enter',
-                      code: 'Enter',
-                      bubbles: true
-                    }
-                  )
-
-                );
-
-              }
-
-            },
-            300
-          );
-
-        };
-
-
-
-      recognition.onend =
-        () => {
-
-          boton.textContent = '🎤';
-
-          boton.classList.remove(
-            'listening'
-          );
-
-        };
-
-
-      recognition.onerror =
-        () => {
-
-          boton.textContent = '🎤';
-
-          boton.classList.remove(
-            'listening'
-          );
-
-        };
-
-    }
-
-  </script>
 
 </body>
 </html>
