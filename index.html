@@ -10,6 +10,16 @@
     href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
     rel="stylesheet"
   >
+
+  <style>
+    html,
+    body,
+    #n8n-chat {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,9 +27,7 @@
   <div id="n8n-chat"></div>
 
   <script type="module">
-
-    import { createChat }
-    from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
     createChat({
       webhookUrl: 'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
@@ -46,8 +54,6 @@
         }
       }
     });
-
   </script>
 
 </body>
-</html>
