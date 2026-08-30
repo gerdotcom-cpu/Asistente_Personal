@@ -62,14 +62,10 @@ html, body {
 
 .nav {
   width: 100%;
-
   display: flex;
   flex-direction: column;
-
   gap: 10px;
-
   align-items: center;
-
   padding-top: 8px;
 }
 
@@ -98,9 +94,7 @@ html, body {
 
 .sidebar-bottom {
   margin-top: auto;
-
   width: 100%;
-
   padding-top: 18px;
 
   display: flex;
@@ -110,9 +104,7 @@ html, body {
 .online-dot {
   width: 10px;
   height: 10px;
-
   border-radius: 50%;
-
   background: #58cc66;
 }
 
@@ -124,7 +116,6 @@ html, body {
 .center {
   min-width: 0;
   min-height: 0;
-
   height: calc(100vh - 36px);
 }
 
@@ -165,13 +156,10 @@ html, body {
 
   padding: 0 28px;
 
-  background: rgba(255,255,255,.97);
+  background: rgba(255,255,255,.98);
 
   pointer-events: none;
 }
-
-
-/* LOGO */
 
 .singularity-logo {
   width: 46px;
@@ -197,27 +185,17 @@ html, body {
   flex-shrink: 0;
 }
 
-
-/* NOMBRE */
-
 .brand-name {
   font-size: 19px;
-
   letter-spacing: 5px;
-
   font-weight: 500;
-
   color: #11191f;
 }
-
-
-/* SUBTÍTULO */
 
 .brand-subtitle {
   margin-left: 14px;
 
   font-size: 14px;
-
   letter-spacing: .4px;
 
   color: #777;
@@ -233,6 +211,7 @@ html, body {
 #n8n-chat {
   width: 100%;
   height: 100%;
+  font-size: 14px;
 }
 
 
@@ -245,15 +224,10 @@ html, body {
 }
 
 
-/*
-IMPORTANTE:
-dejamos espacio arriba para que el chat
-nunca pase por debajo de SINGULARITY
-*/
+/* ESPACIO PARA HEADER FIJO */
 
 #n8n-chat .chat-body {
   height: 100% !important;
-
   padding-top: 82px !important;
 }
 
@@ -262,11 +236,7 @@ nunca pase por debajo de SINGULARITY
 }
 
 
-/* TEXTO DEL CHAT UN POCO MÁS CHICO */
-
-#n8n-chat {
-  font-size: 14px;
-}
+/* TEXTO CHAT */
 
 #n8n-chat .chat-message {
   font-size: 14px !important;
@@ -283,18 +253,44 @@ nunca pase por debajo de SINGULARITY
 
 
 /* ============================
-   COLORES N8N
+   COLORES MENSAJES
+============================ */
+
+/* PREGUNTAS DEL USUARIO */
+
+#n8n-chat .chat-message-from-user,
+#n8n-chat .chat-message.user,
+#n8n-chat [data-message-type="user"] {
+  background: #DCEEFF !important;
+  color: #17324D !important;
+  border-color: #C8E2FA !important;
+}
+
+
+/* RESPUESTAS SINGULARITY */
+
+#n8n-chat .chat-message-from-bot,
+#n8n-chat .chat-message.bot,
+#n8n-chat [data-message-type="bot"] {
+  background: #F2F7FC !important;
+  color: #1E2A35 !important;
+  border-color: #E0EBF5 !important;
+}
+
+
+/* ============================
+   VARIABLES N8N
 ============================ */
 
 :root {
 
-  --chat--color-primary: #11191f;
+  --chat--color-primary: #DCEEFF;
 
-  --chat--color-primary-shade-50: #0c1419;
+  --chat--color-primary-shade-50: #D2E8FC;
 
-  --chat--color-primary-shade-100: #070b0e;
+  --chat--color-primary-shade-100: #C8E2FA;
 
-  --chat--color-secondary: #b48a49;
+  --chat--color-secondary: #F2F7FC;
 
   --chat--color-white: #ffffff;
 
@@ -306,7 +302,7 @@ nunca pase por debajo de SINGULARITY
 
   --chat--color-medium: #a9a9a4;
 
-  --chat--color-dark: #171717;
+  --chat--color-dark: #17324D;
 
   --chat--border-radius: 14px;
 
@@ -351,7 +347,7 @@ nunca pase por debajo de SINGULARITY
 }
 
 
-/* COLOR MUY SUAVE POR WIDGET */
+/* HORA - DORADO MUY SUAVE */
 
 .widgets .widget:nth-child(1) {
   background:
@@ -362,39 +358,45 @@ nunca pase por debajo de SINGULARITY
     );
 }
 
+
+/* CLIMA - CELESTE */
+
 .widgets .widget:nth-child(2) {
   background:
     linear-gradient(
       135deg,
-      #f9fcfb 0%,
-      #eaf5f1 100%
+      #f4fbff 0%,
+      #e2f3fb 100%
     );
 }
+
+
+/* NOTICIAS - AZUL GRISÁCEO */
 
 .widgets .widget:nth-child(3) {
   background:
     linear-gradient(
       135deg,
-      #fafbfd 0%,
-      #edf2f6 100%
+      #f7faff 0%,
+      #e8f0f8 100%
     );
 }
+
+
+/* MERCADOS - VERDE AZULADO */
 
 .widgets .widget:nth-child(4) {
   background:
     linear-gradient(
       135deg,
-      #fffaf7 0%,
-      #f5eee8 100%
+      #f4fbf9 0%,
+      #e4f3ee 100%
     );
 }
 
 
-/* TITULO */
-
 .widget-title {
   display: flex;
-
   align-items: center;
 
   gap: 9px;
@@ -417,9 +419,7 @@ nunca pase por debajo de SINGULARITY
 
 .time-value {
   font-size: 34px;
-
   font-weight: 500;
-
   letter-spacing: -1px;
 }
 
@@ -440,9 +440,7 @@ nunca pase por debajo de SINGULARITY
 
 .weather-main {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
   margin-bottom: 9px;
@@ -450,7 +448,6 @@ nunca pase por debajo de SINGULARITY
 
 .weather-temp {
   font-size: 38px;
-
   font-weight: 500;
 }
 
@@ -460,13 +457,11 @@ nunca pase por debajo de SINGULARITY
 
 .weather-description {
   font-size: 13px;
-
   margin-bottom: 15px;
 }
 
 .weather-info {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
 
   gap: 8px;
@@ -500,9 +495,7 @@ nunca pase por debajo de SINGULARITY
 
 .news-title {
   font-size: 12px;
-
   font-weight: 600;
-
   line-height: 1.35;
 }
 
@@ -545,13 +538,11 @@ nunca pase por debajo de SINGULARITY
 
 .market-change.up {
   color: #178441;
-
   font-weight: 700;
 }
 
 .market-change.down {
   color: #a4433b;
-
   font-weight: 700;
 }
 
@@ -564,14 +555,12 @@ nunca pase por debajo de SINGULARITY
   position: fixed;
 
   right: 400px;
-
   bottom: 42px;
 
   width: 54px;
   height: 54px;
 
   border: none;
-
   border-radius: 50%;
 
   background: #11191f;
@@ -590,7 +579,6 @@ nunca pase por debajo de SINGULARITY
 
 #voiceButton.listening {
   background: #a23c37;
-
   transform: scale(1.08);
 }
 
@@ -637,7 +625,6 @@ nunca pase por debajo de SINGULARITY
 
   .app {
     display: block;
-
     padding: 0;
   }
 
@@ -655,7 +642,6 @@ nunca pase por debajo de SINGULARITY
 
   .brand-name {
     font-size: 16px;
-
     letter-spacing: 3px;
   }
 
