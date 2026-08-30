@@ -19,6 +19,24 @@
       height: 100%;
       margin: 0;
     }
+
+    #voiceButton {
+      position: fixed;
+      right: 24px;
+      bottom: 82px;
+      width: 56px;
+      height: 56px;
+      border: none;
+      border-radius: 50%;
+      font-size: 25px;
+      cursor: pointer;
+      z-index: 99999;
+      box-shadow: 0 4px 14px rgba(0,0,0,.20);
+    }
+
+    #voiceButton.listening {
+      transform: scale(1.08);
+    }
   </style>
 </head>
 
@@ -26,11 +44,16 @@
 
   <div id="n8n-chat"></div>
 
+  <button id="voiceButton" title="Hablar">🎤</button>
+
   <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    import { createChat } from
+      'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
     createChat({
-      webhookUrl: 'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
+      webhookUrl:
+        'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
 
       target: '#n8n-chat',
 
@@ -50,10 +73,164 @@
           subtitle: '',
           footer: '',
           getStarted: 'Nueva conversación',
-          inputPlaceholder: 'Escribí tu mensaje...'
+          inputPlaceholder: 'Escribí o hablá...'
         }
       }
     });
+
+
+    const boton = document.getElementById('voiceButton');
+
+    const SpeechRecognition =
+      window.SpeechRecognition ||
+      window.webkitSpeechRecognition;
+
+
+    function buscarInput() {
+      return document.querySelector(
+        '#n8n-chat textarea, #n8n-chat input[type="text"]'
+      );
+    }
+
+
+    function buscarBotonEnviar() {
+      return document.querySelector(
+        '#n8n-chat button[type="submit"]'
+      );
+    }
+
+
+    if (!SpeechRecognition) {
+
+      boton.disabled = true;
+      boton.title =
+        'Este navegador no soporta reconocimiento de voz';
+
+    } else {
+
+      const recognition = new SpeechRecognition();
+
+      recognition.lang = 'es-MX';
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+
+      boton.addEventListener('click', () => {
+
+        boton.textContent = '🔴';
+        boton.classList.add('listening');
+
+        recognition.start();
+
+      });
+
+
+      recognition.onresult = (event) => {
+
+        const mensaje =
+          event.results[0][0].transcript;
+
+        const input = buscarInput();
+
+        if (!input) return;
+
+        input.value = mensaje;
+
+        input.dispatchEvent(
+          new Event('input', { bubbles: true })
+        );
+
+        input.dispatchEvent(
+          new Event('change', { bubbles: true })
+        );
+
+        setTimeout(() => {
+
+          const enviar = buscarBotonEnviar();
+
+          if (enviar) {
+            enviar.click();
+          } else {
+            input.dispatchEvent(
+              new KeyboardEvent('keydown', {
+                key: 'Enter',
+                code: 'Enter',
+                bubbles: true
+              })
+            );
+          }
+
+        }, 300);
+
+      };
+
+
+      recognition.onend = () => {
+
+        boton.textContent = '🎤';
+        boton.classList.remove('listening');
+
+      };
+
+
+      recognition.onerror = () => {
+
+        boton.textContent = '🎤';
+        boton.classList.remove('listening');
+
+      };
+
+    }
+
+
+    let ultimoTextoLeido = '';
+
+    const observer = new MutationObserver(() => {
+
+      const mensajes =
+        document.querySelectorAll(
+          '#n8n-chat .chat-message-from-bot'
+        );
+
+      if (!mensajes.length) return;
+
+      const ultimo =
+        mensajes[mensajes.length - 1];
+
+      const texto =
+        ultimo.innerText?.trim();
+
+      if (
+        !texto ||
+        texto === ultimoTextoLeido ||
+        texto.startsWith('Hola, soy tu asistente')
+      ) {
+        return;
+      }
+
+      ultimoTextoLeido = texto;
+
+      window.speechSynthesis.cancel();
+
+      const voz =
+        new SpeechSynthesisUtterance(texto);
+
+      voz.lang = 'es-MX';
+
+      window.speechSynthesis.speak(voz);
+
+    });
+
+
+    observer.observe(
+      document.getElementById('n8n-chat'),
+      {
+        childList: true,
+        subtree: true
+      }
+    );
+
   </script>
 
 </body>
+</html>
