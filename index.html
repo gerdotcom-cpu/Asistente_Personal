@@ -54,18 +54,11 @@ body {
   --chat--window--width: 100%;
   --chat--window--height: 100%;
 
-
-  /* TUS PREGUNTAS */
-
   --chat--message--user--background: #CFE8FF;
   --chat--message--user--color: #17324D;
 
-
-  /* RESPUESTAS SINGULARITY */
-
   --chat--message--bot--background: #EDF6FD;
   --chat--message--bot--color: #1D3448;
-
 }
 
 
@@ -88,7 +81,6 @@ body {
   height: 100vh;
 
   padding: 18px;
-
 }
 
 
@@ -115,17 +107,12 @@ body {
   flex-direction: column;
   align-items: center;
 
-  padding:
-    25px
-    10px
-    20px;
+  padding: 25px 10px 20px;
 
   overflow: hidden;
 
   box-shadow:
-    0 10px 30px
-    rgba(0,0,0,.12);
-
+    0 10px 30px rgba(0,0,0,.12);
 }
 
 
@@ -141,7 +128,6 @@ body {
   align-items: center;
 
   padding-top: 8px;
-
 }
 
 
@@ -168,7 +154,6 @@ body {
   transition:
     background .2s ease,
     color .2s ease;
-
 }
 
 
@@ -178,7 +163,6 @@ body {
     rgba(255,255,255,.06);
 
   color: #d6b268;
-
 }
 
 
@@ -193,7 +177,6 @@ body {
   display: flex;
 
   justify-content: center;
-
 }
 
 
@@ -207,9 +190,7 @@ body {
   background: #58cc66;
 
   box-shadow:
-    0 0 8px
-    rgba(88,204,102,.4);
-
+    0 0 8px rgba(88,204,102,.4);
 }
 
 
@@ -224,7 +205,6 @@ body {
 
   height:
     calc(100vh - 36px);
-
 }
 
 
@@ -245,9 +225,7 @@ body {
   position: relative;
 
   box-shadow:
-    0 8px 30px
-    rgba(0,0,0,.035);
-
+    0 8px 30px rgba(0,0,0,.035);
 }
 
 
@@ -278,11 +256,8 @@ body {
     rgba(255,255,255,.98);
 
   pointer-events: none;
-
 }
 
-
-/* LOGO */
 
 .singularity-logo {
 
@@ -306,15 +281,11 @@ body {
   font-size: 24px;
 
   box-shadow:
-    0 0 18px
-    rgba(185,148,79,.15);
+    0 0 18px rgba(185,148,79,.15);
 
   flex-shrink: 0;
-
 }
 
-
-/* SINGULARITY */
 
 .brand-name {
 
@@ -325,11 +296,8 @@ body {
   font-weight: 500;
 
   color: #11191f;
-
 }
 
-
-/* AI PERSONAL ASSISTANT */
 
 .brand-subtitle {
 
@@ -342,7 +310,6 @@ body {
   color: #777;
 
   font-weight: 400;
-
 }
 
 
@@ -356,22 +323,16 @@ body {
   height: 100%;
 
   font-size: 14px;
-
 }
 
-
-/* OCULTAMOS HEADER NATIVO */
 
 #n8n-chat .chat-header,
 #n8n-chat header,
 #n8n-chat .chat-layout .chat-header {
 
   display: none !important;
-
 }
 
-
-/* DEJAMOS ESPACIO PARA NUESTRO HEADER */
 
 #n8n-chat .chat-body {
 
@@ -379,20 +340,14 @@ body {
 
   padding-top:
     82px !important;
-
 }
 
 
 #n8n-chat .chat-wrapper {
 
   height: 100% !important;
-
 }
 
-
-/* =========================================================
-   TIPOGRAFÍA CHAT
-========================================================= */
 
 #n8n-chat .chat-message {
 
@@ -401,7 +356,6 @@ body {
 
   line-height:
     1.45 !important;
-
 }
 
 
@@ -415,19 +369,12 @@ body {
 
   line-height:
     1.45;
-
 }
 
 
 /* =========================================================
-   COLORES DE LOS MENSAJES
+   COLORES MENSAJES
 ========================================================= */
-
-
-/* ---------------------------------------------------------
-   PREGUNTAS DEL USUARIO
-   CELESTE / AZUL MÁS MARCADO
---------------------------------------------------------- */
 
 #n8n-chat .chat-message-from-user,
 #n8n-chat .chat-message.user,
@@ -441,14 +388,8 @@ body {
 
   border-color:
     #B9DCF8 !important;
-
 }
 
-
-/* ---------------------------------------------------------
-   RESPUESTAS DE SINGULARITY
-   AZUL MUY CLARO
---------------------------------------------------------- */
 
 #n8n-chat .chat-message-from-bot,
 #n8n-chat .chat-message.bot,
@@ -462,12 +403,11 @@ body {
 
   border-color:
     #D8EAF7 !important;
-
 }
 
 
 /* =========================================================
-   WIDGETS
+   COLUMNA WIDGETS
 ========================================================= */
 
 .widgets {
@@ -485,10 +425,9 @@ body {
 
   overflow-y: auto;
 
-  padding-right: 2px;
+  padding-right: 4px;
 
   scrollbar-width: thin;
-
 }
 
 
@@ -498,99 +437,15 @@ body {
 
   border-radius: 22px;
 
-  padding: 18px;
+  padding: 17px;
 
   border:
-    1px solid
-    rgba(0,0,0,.06);
+    1px solid rgba(0,0,0,.06);
 
   box-shadow:
-    0 6px 24px
-    rgba(0,0,0,.035);
-
+    0 6px 24px rgba(0,0,0,.035);
 }
 
-
-/* =========================================================
-   COLORES WIDGETS
-========================================================= */
-
-
-/* HORA */
-
-.widgets
-.widget:nth-child(1) {
-
-  background:
-    linear-gradient(
-      135deg,
-      #fffdf7 0%,
-      #f5ecd9 100%
-    );
-
-  border-color:
-    #eadbbd;
-
-}
-
-
-/* CLIMA */
-
-.widgets
-.widget:nth-child(2) {
-
-  background:
-    linear-gradient(
-      135deg,
-      #f5fbff 0%,
-      #dceff9 100%
-    );
-
-  border-color:
-    #cce4f1;
-
-}
-
-
-/* NOTICIAS */
-
-.widgets
-.widget:nth-child(3) {
-
-  background:
-    linear-gradient(
-      135deg,
-      #f5f9fd 0%,
-      #e1ebf5 100%
-    );
-
-  border-color:
-    #d3e0ec;
-
-}
-
-
-/* MERCADOS */
-
-.widgets
-.widget:nth-child(4) {
-
-  background:
-    linear-gradient(
-      135deg,
-      #f5fbf9 0%,
-      #dcefe9 100%
-    );
-
-  border-color:
-    #cde5dc;
-
-}
-
-
-/* =========================================================
-   TITULOS WIDGETS
-========================================================= */
 
 .widget-title {
 
@@ -609,13 +464,25 @@ body {
   letter-spacing: .7px;
 
   color: #303030;
-
 }
 
 
 /* =========================================================
    HORA
 ========================================================= */
+
+.widget-time {
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffdf7 0%,
+      #f5ecd9 100%
+    );
+
+  border-color: #eadbbd;
+}
+
 
 .time-value {
 
@@ -626,7 +493,6 @@ body {
   letter-spacing: -1px;
 
   color: #2b3135;
-
 }
 
 
@@ -639,13 +505,25 @@ body {
   font-size: 12px;
 
   text-transform: capitalize;
-
 }
 
 
 /* =========================================================
    CLIMA
 ========================================================= */
+
+.widget-weather {
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5fbff 0%,
+      #dceff9 100%
+    );
+
+  border-color: #cce4f1;
+}
+
 
 .weather-main {
 
@@ -656,7 +534,6 @@ body {
   justify-content: space-between;
 
   margin-bottom: 9px;
-
 }
 
 
@@ -667,14 +544,12 @@ body {
   font-weight: 500;
 
   color: #24465e;
-
 }
 
 
 .weather-icon {
 
   font-size: 34px;
-
 }
 
 
@@ -685,7 +560,6 @@ body {
   margin-bottom: 15px;
 
   color: #425968;
-
 }
 
 
@@ -701,13 +575,393 @@ body {
   font-size: 11px;
 
   color: #657681;
+}
 
+
+/* =========================================================
+   TO DO - AVANCE ESPERADO
+========================================================= */
+
+.widget-todo-week {
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7fbff 0%,
+      #e8f3fb 100%
+    );
+
+  border-color: #d5e7f4;
+}
+
+
+.week-list {
+
+  max-height: 155px;
+
+  overflow-y: auto;
+
+  padding-right: 5px;
+
+  scrollbar-width: thin;
+}
+
+
+.week-item {
+
+  padding: 10px 0;
+
+  border-bottom:
+    1px solid rgba(0,0,0,.07);
+}
+
+
+.week-item:last-child {
+
+  border-bottom: none;
+}
+
+
+.week-client {
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  color: #23527a;
+
+  margin-bottom: 3px;
+}
+
+
+.week-issue {
+
+  font-size: 10px;
+
+  color: #788894;
+
+  margin-bottom: 5px;
+}
+
+
+.week-action {
+
+  font-size: 12px;
+
+  line-height: 1.35;
+
+  color: #243746;
+
+  white-space: pre-line;
+}
+
+
+.empty-state {
+
+  font-size: 11px;
+
+  color: #8b969d;
+
+  padding: 8px 0;
+}
+
+
+/* =========================================================
+   DONUTS ESTADO
+========================================================= */
+
+.widget-status {
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f4f8fb 100%
+    );
+
+  border-color: #dce6ed;
+}
+
+
+.status-layout {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  min-height: 126px;
+}
+
+
+.donut {
+
+  --enCurso: 0;
+  --retrasados: 0;
+
+  width: 108px;
+  height: 108px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+
+    conic-gradient(
+
+      #2878b8
+      0%
+      calc(var(--enCurso) * 1%),
+
+      #c5483f
+      calc(var(--enCurso) * 1%)
+      calc((var(--enCurso) + var(--retrasados)) * 1%),
+
+      #43a66b
+      calc((var(--enCurso) + var(--retrasados)) * 1%)
+      100%
+
+    );
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.donut::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+.donut-total {
+
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+}
+
+
+.donut-number {
+
+  display: block;
+
+  font-size: 23px;
+
+  font-weight: 600;
+
+  color: #23323d;
+}
+
+
+.donut-label {
+
+  display: block;
+
+  margin-top: 1px;
+
+  font-size: 9px;
+
+  color: #8a969e;
+
+  text-transform: uppercase;
+
+  letter-spacing: .4px;
+}
+
+
+.status-legend {
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.legend-row {
+
+  display: grid;
+
+  grid-template-columns:
+    10px 1fr auto;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 11px;
+
+  color: #53636e;
+}
+
+
+.legend-dot {
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+}
+
+
+.legend-blue {
+  background: #2878b8;
+}
+
+
+.legend-red {
+  background: #c5483f;
+}
+
+
+.legend-green {
+  background: #43a66b;
+}
+
+
+.legend-value {
+
+  font-weight: 700;
+
+  color: #263943;
+}
+
+
+/* =========================================================
+   ACCIONES DE LA SEMANA
+========================================================= */
+
+.widget-actions-week {
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffaf7 0%,
+      #f8ebe5 100%
+    );
+
+  border-color: #ecd8cf;
+}
+
+
+.action-week-item {
+
+  padding: 10px 0;
+
+  border-bottom:
+    1px solid rgba(0,0,0,.07);
+}
+
+
+.action-week-item:last-child {
+
+  border-bottom: none;
+}
+
+
+.action-week-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 4px;
+}
+
+
+.action-week-date {
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  color: #a24a42;
+}
+
+
+.action-week-responsable {
+
+  font-size: 10px;
+
+  color: #7c858b;
+}
+
+
+.action-week-name {
+
+  font-size: 12px;
+
+  line-height: 1.35;
+
+  color: #343d42;
+}
+
+
+.action-week-status {
+
+  margin-top: 4px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+
+.status-en-curso {
+  color: #2878b8;
+}
+
+
+.status-retrasado {
+  color: #c5483f;
+}
+
+
+.status-cerrado {
+  color: #43a66b;
 }
 
 
 /* =========================================================
    NOTICIAS
 ========================================================= */
+
+.widget-news {
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f9fd 0%,
+      #e1ebf5 100%
+    );
+
+  border-color: #d3e0ec;
+}
+
 
 .news-item {
 
@@ -717,20 +971,17 @@ body {
     9px 0;
 
   border-bottom:
-    1px solid
-    rgba(0,0,0,.07);
+    1px solid rgba(0,0,0,.07);
 
   text-decoration: none;
 
   color: inherit;
-
 }
 
 
 .news-item:last-child {
 
   border-bottom: none;
-
 }
 
 
@@ -743,7 +994,6 @@ body {
   line-height: 1.35;
 
   color: #273d50;
-
 }
 
 
@@ -754,13 +1004,25 @@ body {
   font-size: 10px;
 
   color: #7d8b95;
-
 }
 
 
 /* =========================================================
    MERCADOS
 ========================================================= */
+
+.widget-markets {
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5fbf9 0%,
+      #dcefe9 100%
+    );
+
+  border-color: #cde5dc;
+}
+
 
 .market-row {
 
@@ -777,25 +1039,21 @@ body {
     9px 0;
 
   border-bottom:
-    1px solid
-    rgba(0,0,0,.07);
+    1px solid rgba(0,0,0,.07);
 
   font-size: 11px;
-
 }
 
 
 .market-row:last-child {
 
   border-bottom: none;
-
 }
 
 
 .market-price {
 
   font-weight: 600;
-
 }
 
 
@@ -804,7 +1062,6 @@ body {
   color: #178441;
 
   font-weight: 700;
-
 }
 
 
@@ -813,7 +1070,6 @@ body {
   color: #a4433b;
 
   font-weight: 700;
-
 }
 
 
@@ -848,9 +1104,7 @@ body {
   z-index: 2147483647;
 
   box-shadow:
-    0 7px 22px
-    rgba(0,0,0,.20);
-
+    0 7px 22px rgba(0,0,0,.20);
 }
 
 
@@ -861,7 +1115,6 @@ body {
 
   transform:
     scale(1.08);
-
 }
 
 
@@ -869,8 +1122,7 @@ body {
    RESPONSIVE
 ========================================================= */
 
-@media
-(max-width: 1250px) {
+@media (max-width: 1250px) {
 
   .app {
 
@@ -880,77 +1132,66 @@ body {
       310px;
 
     gap: 14px;
-
   }
 
 
   #voiceButton {
 
     right: 350px;
-
   }
 
 }
 
 
-@media
-(max-width: 1050px) {
+@media (max-width: 1050px) {
 
   .app {
 
     grid-template-columns:
       95px
       minmax(0,1fr);
-
   }
 
 
   .widgets {
 
     display: none;
-
   }
 
 
   #voiceButton {
 
     right: 38px;
-
   }
 
 }
 
 
-@media
-(max-width: 700px) {
+@media (max-width: 700px) {
 
   .app {
 
     display: block;
 
     padding: 0;
-
   }
 
 
   .sidebar {
 
     display: none;
-
   }
 
 
   .center {
 
     height: 100vh;
-
   }
 
 
   .chat-card {
 
     border-radius: 0;
-
   }
 
 
@@ -959,14 +1200,12 @@ body {
     font-size: 16px;
 
     letter-spacing: 3px;
-
   }
 
 
   .brand-subtitle {
 
     font-size: 11px;
-
   }
 
 }
@@ -1068,23 +1307,17 @@ body {
 
 
       <div class="singularity-logo">
-
         ◎
-
       </div>
 
 
       <div class="brand-name">
-
         SINGULARITY
-
       </div>
 
 
       <div class="brand-subtitle">
-
         AI Personal Assistant
-
       </div>
 
 
@@ -1108,28 +1341,22 @@ body {
 <aside class="widgets">
 
 
+<!-- ======================================================
+     HORA
+====================================================== -->
 
-<!-- HORA -->
-
-<section class="widget">
-
+<section class="widget widget-time">
 
   <div class="widget-title">
-
     ◷ HORA
-
   </div>
-
 
   <div
     class="time-value"
     id="currentTime"
   >
-
     --:--
-
   </div>
-
 
   <div
     class="date-value"
@@ -1137,45 +1364,36 @@ body {
   >
   </div>
 
-
 </section>
 
 
 
-<!-- CLIMA -->
+<!-- ======================================================
+     CLIMA
+====================================================== -->
 
-<section class="widget">
-
+<section class="widget widget-weather">
 
   <div class="widget-title">
-
     ☀ CLIMA
-
   </div>
 
 
   <div class="weather-main">
 
-
     <div
       class="weather-temp"
       id="weatherTemp"
     >
-
       --
-
     </div>
-
 
     <div
       class="weather-icon"
       id="weatherIcon"
     >
-
       ☀
-
     </div>
-
 
   </div>
 
@@ -1184,103 +1402,330 @@ body {
     class="weather-description"
     id="weatherDescription"
   >
-
     Cargando clima...
-
   </div>
 
 
   <div class="weather-info">
 
-
     <div>
-
       Ciudad de México
-
     </div>
-
 
     <div id="weatherWind">
-
       Viento --
-
     </div>
-
 
     <div id="weatherMax">
-
       Máx. --
-
     </div>
-
 
     <div id="weatherMin">
-
       Mín. --
-
     </div>
 
-
   </div>
-
 
 </section>
 
 
 
-<!-- NOTICIAS -->
+<!-- ======================================================
+     1. TO DO - AVANCE ESPERADO SEMANA
+====================================================== -->
 
-<section class="widget">
-
+<section class="widget widget-todo-week">
 
   <div class="widget-title">
+    ◎ TO DO · AVANCE ESPERADO
+  </div>
 
-    ▤ NOTICIAS
+  <div
+    class="week-list"
+    id="todoWeek"
+  >
+
+    <div class="empty-state">
+      Cargando...
+    </div>
 
   </div>
 
+</section>
+
+
+
+<!-- ======================================================
+     2. TO DO - ESTADO
+====================================================== -->
+
+<section class="widget widget-status">
+
+  <div class="widget-title">
+    ◉ TO DO · ESTADO
+  </div>
+
+
+  <div class="status-layout">
+
+
+    <div
+      class="donut"
+      id="todoDonut"
+    >
+
+      <div class="donut-total">
+
+        <span
+          class="donut-number"
+          id="todoTotal"
+        >
+          0
+        </span>
+
+        <span class="donut-label">
+          total
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="status-legend">
+
+
+      <div class="legend-row">
+
+        <span class="legend-dot legend-blue"></span>
+
+        <span>
+          En curso
+        </span>
+
+        <span
+          class="legend-value"
+          id="todoEnCurso"
+        >
+          0
+        </span>
+
+      </div>
+
+
+      <div class="legend-row">
+
+        <span class="legend-dot legend-red"></span>
+
+        <span>
+          Retrasados
+        </span>
+
+        <span
+          class="legend-value"
+          id="todoRetrasados"
+        >
+          0
+        </span>
+
+      </div>
+
+
+      <div class="legend-row">
+
+        <span class="legend-dot legend-green"></span>
+
+        <span>
+          Cerrados
+        </span>
+
+        <span
+          class="legend-value"
+          id="todoCerrados"
+        >
+          0
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     3. ACCIONES - VENCEN ESTA SEMANA
+====================================================== -->
+
+<section class="widget widget-actions-week">
+
+  <div class="widget-title">
+    ◷ ACCIONES · ESTA SEMANA
+  </div>
+
+
+  <div
+    class="week-list"
+    id="actionsWeek"
+  >
+
+    <div class="empty-state">
+      Cargando...
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     4. ACCIONES - ESTADO
+====================================================== -->
+
+<section class="widget widget-status">
+
+  <div class="widget-title">
+    ◉ ACCIONES · ESTADO
+  </div>
+
+
+  <div class="status-layout">
+
+
+    <div
+      class="donut"
+      id="actionsDonut"
+    >
+
+      <div class="donut-total">
+
+        <span
+          class="donut-number"
+          id="actionsTotal"
+        >
+          0
+        </span>
+
+        <span class="donut-label">
+          total
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="status-legend">
+
+
+      <div class="legend-row">
+
+        <span class="legend-dot legend-blue"></span>
+
+        <span>
+          En curso
+        </span>
+
+        <span
+          class="legend-value"
+          id="actionsEnCurso"
+        >
+          0
+        </span>
+
+      </div>
+
+
+      <div class="legend-row">
+
+        <span class="legend-dot legend-red"></span>
+
+        <span>
+          Retrasadas
+        </span>
+
+        <span
+          class="legend-value"
+          id="actionsRetrasados"
+        >
+          0
+        </span>
+
+      </div>
+
+
+      <div class="legend-row">
+
+        <span class="legend-dot legend-green"></span>
+
+        <span>
+          Cerradas
+        </span>
+
+        <span
+          class="legend-value"
+          id="actionsCerrados"
+        >
+          0
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     NOTICIAS
+====================================================== -->
+
+<section class="widget widget-news">
+
+  <div class="widget-title">
+    ▤ NOTICIAS
+  </div>
 
   <div id="news">
 
-
     <div class="news-meta">
-
       Cargando noticias...
-
     </div>
 
-
   </div>
-
 
 </section>
 
 
 
-<!-- MERCADOS -->
+<!-- ======================================================
+     MERCADOS
+====================================================== -->
 
-<section class="widget">
-
+<section class="widget widget-markets">
 
   <div class="widget-title">
-
     ↗ MERCADOS
-
   </div>
-
 
   <div id="markets">
 
-
     <div class="news-meta">
-
       Cargando mercados...
-
     </div>
 
-
   </div>
-
 
 </section>
 
@@ -1293,16 +1738,14 @@ body {
 
 
 <!-- ======================================================
-     BOTON VOZ
+     BOTÓN VOZ
 ====================================================== -->
 
 <button
   id="voiceButton"
   title="Hablar"
 >
-
 🎤
-
 </button>
 
 
@@ -1337,9 +1780,7 @@ createChat({
   'es',
 
   initialMessages: [
-
     'Hola, soy Singularity. ¿En qué puedo ayudarte?'
-
   ],
 
   i18n: {
@@ -1371,7 +1812,6 @@ createChat({
 ========================================================= */
 
 function actualizarHora() {
-
 
   const ahora =
     new Date();
@@ -1427,12 +1867,10 @@ function actualizarHora() {
 
     ).format(ahora);
 
-
 }
 
 
 actualizarHora();
-
 
 setInterval(
   actualizarHora,
@@ -1447,9 +1885,7 @@ setInterval(
 
 async function cargarClima() {
 
-
   try {
-
 
     const url =
       'https://api.open-meteo.com/v1/forecast?latitude=19.4326&longitude=-99.1332&current=temperature_2m,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=America%2FMexico_City';
@@ -1548,47 +1984,36 @@ async function cargarClima() {
       code <= 3
     ) {
 
-
       descripcion =
         'Parcialmente nublado';
-
 
       icono =
         '⛅';
 
-
     }
-
 
     else if (
       code >= 45 &&
       code <= 48
     ) {
 
-
       descripcion =
         'Neblina';
-
 
       icono =
         '☁';
 
-
     }
-
 
     else if (
       code >= 51
     ) {
 
-
       descripcion =
         'Lluvia';
 
-
       icono =
         '🌧';
-
 
     }
 
@@ -1600,27 +2025,21 @@ async function cargarClima() {
       descripcion;
 
 
-
     document.getElementById(
       'weatherIcon'
     ).textContent =
       icono;
 
-
   }
 
-
   catch {
-
 
     document.getElementById(
       'weatherDescription'
     ).textContent =
       'Clima no disponible';
 
-
   }
-
 
 }
 
@@ -1630,11 +2049,493 @@ cargarClima();
 
 
 /* =========================================================
+   DASHBOARD SINGULARITY
+========================================================= */
+
+const DASHBOARD_URL =
+  'https://gerardopustelnik.app.n8n.cloud/webhook/Dashboard_Singularity';
+
+
+
+function porcentaje(
+  cantidad,
+  total
+) {
+
+  if (!total) {
+    return 0;
+  }
+
+  return (
+    cantidad / total
+  ) * 100;
+
+}
+
+
+
+function actualizarDonut(
+  donutId,
+  totalId,
+  enCursoId,
+  retrasadosId,
+  cerradosId,
+  datos
+) {
+
+  const total =
+    Number(datos.total || 0);
+
+  const enCurso =
+    Number(datos.enCurso || 0);
+
+  const retrasados =
+    Number(datos.retrasados || 0);
+
+  const cerrados =
+    Number(datos.cerrados || 0);
+
+
+  document.getElementById(
+    totalId
+  ).textContent =
+    total;
+
+
+  document.getElementById(
+    enCursoId
+  ).textContent =
+    enCurso;
+
+
+  document.getElementById(
+    retrasadosId
+  ).textContent =
+    retrasados;
+
+
+  document.getElementById(
+    cerradosId
+  ).textContent =
+    cerrados;
+
+
+  const donut =
+    document.getElementById(
+      donutId
+    );
+
+
+  if (total === 0) {
+
+    donut.style.background =
+      '#e7edf1';
+
+    return;
+
+  }
+
+
+  const pctEnCurso =
+    porcentaje(
+      enCurso,
+      total
+    );
+
+
+  const pctRetrasados =
+    porcentaje(
+      retrasados,
+      total
+    );
+
+
+  const finRetrasados =
+    pctEnCurso +
+    pctRetrasados;
+
+
+  donut.style.background =
+
+    `conic-gradient(
+      #2878b8 0% ${pctEnCurso}%,
+      #c5483f ${pctEnCurso}% ${finRetrasados}%,
+      #43a66b ${finRetrasados}% 100%
+    )`;
+
+}
+
+
+
+function cargarAvanceEsperado(
+  lista
+) {
+
+  const contenedor =
+    document.getElementById(
+      'todoWeek'
+    );
+
+
+  if (
+    !lista ||
+    lista.length === 0
+  ) {
+
+    contenedor.innerHTML =
+
+      '<div class="empty-state">Sin avances esperados cargados.</div>';
+
+    return;
+
+  }
+
+
+  contenedor.innerHTML =
+    '';
+
+
+  lista.forEach(
+    item => {
+
+
+      const fila =
+        document.createElement(
+          'div'
+        );
+
+
+      fila.className =
+        'week-item';
+
+
+      const cliente =
+        item.cliente || 'Sin cliente';
+
+
+      const issue =
+        item.issue || '';
+
+
+      const avance =
+        item.avanceEsperado || '';
+
+
+      fila.innerHTML =
+
+        '<div class="week-client">'
+        +
+        cliente
+        +
+        '</div>'
+
+        +
+
+        '<div class="week-issue">'
+        +
+        issue
+        +
+        '</div>'
+
+        +
+
+        '<div class="week-action">'
+        +
+        avance
+        +
+        '</div>';
+
+
+      contenedor.appendChild(
+        fila
+      );
+
+    }
+
+  );
+
+}
+
+
+
+function claseEstado(
+  estado
+) {
+
+  const valor =
+    String(
+      estado || ''
+    ).toLowerCase();
+
+
+  if (
+    valor.includes(
+      'retras'
+    )
+  ) {
+
+    return 'status-retrasado';
+
+  }
+
+
+  if (
+    valor.includes(
+      'cerr'
+    )
+  ) {
+
+    return 'status-cerrado';
+
+  }
+
+
+  return 'status-en-curso';
+
+}
+
+
+
+function cargarAccionesSemana(
+  lista
+) {
+
+  const contenedor =
+    document.getElementById(
+      'actionsWeek'
+    );
+
+
+  if (
+    !lista ||
+    lista.length === 0
+  ) {
+
+    contenedor.innerHTML =
+
+      '<div class="empty-state">No hay acciones que venzan esta semana.</div>';
+
+    return;
+
+  }
+
+
+  contenedor.innerHTML =
+    '';
+
+
+  lista.forEach(
+    item => {
+
+
+      const fila =
+        document.createElement(
+          'div'
+        );
+
+
+      fila.className =
+        'action-week-item';
+
+
+      const fecha =
+        item.fecha || '';
+
+
+      const responsable =
+        item.responsable || '';
+
+
+      const accion =
+        item.accion || '';
+
+
+      const estado =
+        item.estado || '';
+
+
+      const clase =
+        claseEstado(
+          estado
+        );
+
+
+      fila.innerHTML =
+
+        '<div class="action-week-top">'
+
+        +
+
+          '<span class="action-week-date">'
+          +
+          fecha
+          +
+          '</span>'
+
+        +
+
+          '<span class="action-week-responsable">'
+          +
+          responsable
+          +
+          '</span>'
+
+        +
+
+        '</div>'
+
+        +
+
+        '<div class="action-week-name">'
+        +
+        accion
+        +
+        '</div>'
+
+        +
+
+        '<div class="action-week-status '
+        +
+        clase
+        +
+        '">'
+        +
+        estado
+        +
+        '</div>';
+
+
+      contenedor.appendChild(
+        fila
+      );
+
+    }
+
+  );
+
+}
+
+
+
+async function cargarDashboard() {
+
+  try {
+
+    const response =
+      await fetch(
+        DASHBOARD_URL,
+        {
+          method: 'GET',
+          cache: 'no-store'
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        'Error dashboard'
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+
+    cargarAvanceEsperado(
+      data.avanceEsperadoSemana
+    );
+
+
+
+    actualizarDonut(
+
+      'todoDonut',
+
+      'todoTotal',
+
+      'todoEnCurso',
+
+      'todoRetrasados',
+
+      'todoCerrados',
+
+      data.todoEstado || {}
+
+    );
+
+
+
+    cargarAccionesSemana(
+      data.accionesSemana
+    );
+
+
+
+    actualizarDonut(
+
+      'actionsDonut',
+
+      'actionsTotal',
+
+      'actionsEnCurso',
+
+      'actionsRetrasados',
+
+      'actionsCerrados',
+
+      data.accionesEstado || {}
+
+    );
+
+
+  }
+
+  catch (error) {
+
+
+    document.getElementById(
+      'todoWeek'
+    ).innerHTML =
+
+      '<div class="empty-state">Dashboard no disponible.</div>';
+
+
+    document.getElementById(
+      'actionsWeek'
+    ).innerHTML =
+
+      '<div class="empty-state">Dashboard no disponible.</div>';
+
+
+    console.error(
+      'Dashboard Singularity:',
+      error
+    );
+
+  }
+
+}
+
+
+cargarDashboard();
+
+
+setInterval(
+  cargarDashboard,
+  60000
+);
+
+
+
+/* =========================================================
    NOTICIAS
 ========================================================= */
 
 async function cargarNoticias() {
-
 
   const contenedor =
     document.getElementById(
@@ -1643,7 +2544,6 @@ async function cargarNoticias() {
 
 
   try {
-
 
     const feed =
       'https://news.google.com/rss?hl=es-419&gl=MX&ceid=MX:es-419';
@@ -1674,10 +2574,8 @@ async function cargarNoticias() {
     }
 
 
-
     contenedor.innerHTML =
       '';
-
 
 
     data.items
@@ -1763,20 +2661,15 @@ async function cargarNoticias() {
 
       );
 
-
   }
 
-
   catch {
-
 
     contenedor.innerHTML =
 
       '<div class="news-meta">Noticias no disponibles</div>';
 
-
   }
-
 
 }
 
