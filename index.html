@@ -14,12 +14,9 @@
 
 <style>
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html,
-body {
+html, body {
   margin: 0;
   width: 100%;
   height: 100%;
@@ -29,44 +26,24 @@ body {
   color: #171717;
 }
 
-
-/* =================================
-   ESTRUCTURA GENERAL
-================================= */
-
 .app {
   display: grid;
   grid-template-columns: 118px minmax(0, 1fr) 360px;
   gap: 18px;
-
   width: 100vw;
   height: 100vh;
-
   padding: 18px;
 }
 
-
-/* =================================
-   SIDEBAR
-================================= */
+/* SIDEBAR */
 
 .sidebar {
-
   height: calc(100vh - 36px);
-
   border-radius: 34px;
 
   background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(190,150,72,.14),
-      transparent 22%
-    ),
-    linear-gradient(
-      180deg,
-      #11181b 0%,
-      #081319 100%
-    );
+    radial-gradient(circle at 50% 0%, rgba(190,150,72,.14), transparent 22%),
+    linear-gradient(180deg, #11181b 0%, #081319 100%);
 
   color: white;
 
@@ -78,15 +55,10 @@ body {
 
   overflow: hidden;
 
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
 }
 
-
-/* LOGO */
-
 .logo {
-
   width: 58px;
   height: 58px;
 
@@ -103,42 +75,26 @@ body {
 
   margin-bottom: 10px;
 
-  box-shadow:
-    0 0 22px rgba(185,148,79,.16);
+  box-shadow: 0 0 22px rgba(185,148,79,.16);
 }
 
-
 .logo-title {
-
   font-size: 9px;
-
   letter-spacing: 1.8px;
-
   color: #d3b36f;
-
   margin-bottom: 28px;
-
   text-align: center;
 }
 
-
-/* ICONOS */
-
 .nav {
-
   width: 100%;
-
   display: flex;
   flex-direction: column;
-
   gap: 10px;
-
   align-items: center;
 }
 
-
 .nav-item {
-
   width: 72px;
   height: 64px;
 
@@ -155,31 +111,19 @@ body {
   opacity: .88;
 }
 
-
 .nav-item.active {
-
   background: rgba(255,255,255,.07);
-
   border-left: 3px solid #c69d52;
-
   color: #d6b268;
 }
 
-
 .nav-item:hover {
-
   background: rgba(255,255,255,.05);
 }
 
-
-/* ESTADO */
-
 .sidebar-bottom {
-
   margin-top: auto;
-
   width: 100%;
-
   padding-top: 18px;
 
   border-top: 1px solid rgba(255,255,255,.08);
@@ -188,55 +132,38 @@ body {
   justify-content: center;
 }
 
-
 .online-dot {
-
   width: 10px;
   height: 10px;
-
   border-radius: 50%;
-
   background: #58cc66;
 }
 
-
-/* =================================
-   CENTRO
-================================= */
+/* CENTRO */
 
 .center {
-
   min-width: 0;
   min-height: 0;
-
   height: calc(100vh - 36px);
 }
 
-
 .chat-card {
-
   width: 100%;
   height: 100%;
 
   background: white;
 
   border: 1px solid #e4e4e0;
-
   border-radius: 28px;
 
   overflow: hidden;
 
   position: relative;
 
-  box-shadow:
-    0 8px 30px rgba(0,0,0,.035);
+  box-shadow: 0 8px 30px rgba(0,0,0,.035);
 }
 
-
-/* NOMBRE SINGULARITY */
-
 .chat-brand {
-
   position: absolute;
 
   top: 24px;
@@ -245,42 +172,33 @@ body {
   z-index: 30;
 
   font-size: 17px;
-
-  letter-spacing: 7px;
+  letter-spacing: 5px;
 
   color: #141414;
 
   pointer-events: none;
 }
 
-
-/* CHAT */
+.chat-brand span {
+  letter-spacing: .5px;
+  font-size: 11px;
+  color: #898985;
+  font-weight: 400;
+  margin-left: 8px;
+}
 
 #n8n-chat {
-
   width: 100%;
   height: 100%;
 }
 
+/* SACAR HEADER N8N */
 
-/* =================================
-   OCULTAR BARRA SUPERIOR N8N
-================================= */
-
-#n8n-chat .chat-header {
-  display: none !important;
-}
-
-#n8n-chat header {
-  display: none !important;
-}
-
+#n8n-chat .chat-header,
+#n8n-chat header,
 #n8n-chat .chat-layout .chat-header {
   display: none !important;
 }
-
-
-/* CHAT OCUPA TODO EL PANEL */
 
 #n8n-chat .chat-body {
   height: 100% !important;
@@ -291,17 +209,11 @@ body {
   height: 100% !important;
 }
 
-
-/* =================================
-   COLORES CHAT N8N
-================================= */
+/* COLORES N8N */
 
 :root {
-
   --chat--color-primary: #11191f;
-
   --chat--color-primary-shade-50: #0c1419;
-
   --chat--color-primary-shade-100: #070b0e;
 
   --chat--color-secondary: #b48a49;
@@ -309,29 +221,21 @@ body {
   --chat--color-white: #ffffff;
 
   --chat--color-light: #f5f5f3;
-
   --chat--color-light-shade-50: #eeeeeb;
-
   --chat--color-light-shade-100: #dfdfda;
 
   --chat--color-medium: #a9a9a4;
-
   --chat--color-dark: #171717;
 
   --chat--border-radius: 14px;
 
   --chat--window--width: 100%;
-
   --chat--window--height: 100%;
 }
 
-
-/* =================================
-   WIDGETS DERECHA
-================================= */
+/* WIDGETS */
 
 .widgets {
-
   min-height: 0;
 
   height: calc(100vh - 36px);
@@ -348,135 +252,111 @@ body {
   scrollbar-width: thin;
 }
 
-
 .widget {
-
   flex-shrink: 0;
 
   background: white;
 
   border: 1px solid #e4e4e0;
-
   border-radius: 22px;
 
   padding: 18px;
 
-  box-shadow:
-    0 6px 24px rgba(0,0,0,.035);
+  box-shadow: 0 6px 24px rgba(0,0,0,.035);
 }
-
 
 .widget-title {
-
   display: flex;
   align-items: center;
-
   gap: 9px;
 
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 
-  font-size: 13px;
-
+  font-size: 12px;
   font-weight: 700;
-
-  letter-spacing: .3px;
+  letter-spacing: .6px;
 }
 
+/* HORA */
 
-/* =================================
-   CLIMA
-================================= */
+.time-value {
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.date-value {
+  margin-top: 5px;
+  color: #777;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+/* CLIMA */
 
 .weather-main {
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-bottom: 9px;
 }
 
-
 .weather-temp {
-
-  font-size: 44px;
-
+  font-size: 42px;
   font-weight: 500;
 }
 
-
 .weather-icon {
-
-  font-size: 40px;
+  font-size: 38px;
 }
 
-
 .weather-description {
-
   font-size: 14px;
-
   margin-bottom: 15px;
 }
 
-
 .weather-info {
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
 
   gap: 8px;
 
   font-size: 12px;
-
   color: #666;
 }
 
-
-/* =================================
-   NOTICIAS
-================================= */
+/* NOTICIAS */
 
 .news-item {
+  display: block;
 
   padding: 10px 0;
 
   border-bottom: 1px solid #eeeeeb;
+
+  text-decoration: none;
+  color: inherit;
 }
 
-
 .news-item:last-child {
-
   border-bottom: none;
 }
 
-
 .news-title {
-
   font-size: 13px;
-
   font-weight: 600;
-
   line-height: 1.35;
 }
 
-
 .news-meta {
-
   margin-top: 4px;
-
   font-size: 11px;
-
   color: #888;
 }
 
-
-/* =================================
-   MERCADOS
-================================= */
+/* MERCADOS */
 
 .market-row {
-
   display: grid;
 
   grid-template-columns: 1fr auto auto;
@@ -490,42 +370,39 @@ body {
   font-size: 12px;
 }
 
-
 .market-row:last-child {
-
   border-bottom: none;
 }
 
-
-.market-change {
-
-  color: #178441;
-
+.market-price {
   font-weight: 600;
 }
 
+.market-change.up {
+  color: #178441;
+  font-weight: 700;
+}
 
-/* =================================
-   MICRÓFONO
-================================= */
+.market-change.down {
+  color: #a4433b;
+  font-weight: 700;
+}
+
+/* MICRO */
 
 #voiceButton {
-
   position: fixed;
 
   right: 400px;
-
   bottom: 42px;
 
   width: 56px;
   height: 56px;
 
   border: none;
-
   border-radius: 50%;
 
   background: #11191f;
-
   color: white;
 
   font-size: 23px;
@@ -534,96 +411,61 @@ body {
 
   z-index: 2147483647;
 
-  box-shadow:
-    0 7px 22px rgba(0,0,0,.20);
-
-  transition:
-    transform .15s ease;
+  box-shadow: 0 7px 22px rgba(0,0,0,.20);
 }
-
-
-#voiceButton:hover {
-
-  transform: translateY(-2px);
-}
-
 
 #voiceButton.listening {
-
   background: #a23c37;
-
   transform: scale(1.08);
 }
 
-
-/* =================================
-   RESPONSIVE
-================================= */
+/* RESPONSIVE */
 
 @media (max-width: 1250px) {
 
   .app {
-
-    grid-template-columns:
-      105px minmax(0,1fr) 310px;
-
+    grid-template-columns: 105px minmax(0,1fr) 310px;
     gap: 14px;
   }
 
-
   #voiceButton {
-
     right: 350px;
   }
-}
 
+}
 
 @media (max-width: 1050px) {
 
   .app {
-
-    grid-template-columns:
-      95px minmax(0,1fr);
+    grid-template-columns: 95px minmax(0,1fr);
   }
 
-
   .widgets {
-
     display: none;
   }
 
-
   #voiceButton {
-
     right: 38px;
   }
-}
 
+}
 
 @media (max-width: 700px) {
 
   .app {
-
     display: block;
-
     padding: 0;
   }
 
-
   .sidebar {
-
     display: none;
   }
 
-
   .center {
-
     height: 100vh;
   }
 
-
   .chat-card {
-
     border-radius: 0;
   }
 
@@ -633,22 +475,17 @@ body {
 
 </head>
 
-
 <body>
 
 
 <div class="app">
 
 
-<!-- =================================
-     SIDEBAR
-================================= -->
+<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
-  <div class="logo">
-    ◎
-  </div>
+  <div class="logo">◎</div>
 
   <div class="logo-title">
     SINGULARITY
@@ -657,57 +494,32 @@ body {
 
   <div class="nav">
 
-    <div class="nav-item active"
-         title="Chat">
-      ◌
-    </div>
+    <div class="nav-item active" title="Chat">◌</div>
 
-    <div class="nav-item"
-         title="Seguimiento To Do">
-      ✓
-    </div>
+    <div class="nav-item" title="Seguimiento To Do">✓</div>
 
-    <div class="nav-item"
-         title="Seguimiento Acciones">
-      ▣
-    </div>
+    <div class="nav-item" title="Seguimiento Acciones">▣</div>
 
-    <div class="nav-item"
-         title="Gestión de correos">
-      ✉
-    </div>
+    <div class="nav-item" title="Gestión de correos">✉</div>
 
-    <div class="nav-item"
-         title="Gestión de agenda">
-      ◫
-    </div>
+    <div class="nav-item" title="Gestión de agenda">◫</div>
 
-    <div class="nav-item"
-         title="Acciones">
-      ⚡
-    </div>
+    <div class="nav-item" title="Acciones">⚡</div>
 
-    <div class="nav-item"
-         title="Configuración">
-      ⚙
-    </div>
+    <div class="nav-item" title="Configuración">⚙</div>
 
   </div>
 
 
   <div class="sidebar-bottom">
-
     <div class="online-dot"></div>
-
   </div>
 
 </aside>
 
 
 
-<!-- =================================
-     CHAT CENTRAL
-================================= -->
+<!-- CHAT -->
 
 <main class="center">
 
@@ -715,6 +527,7 @@ body {
 
     <div class="chat-brand">
       SINGULARITY
+      <span>— AI Personal Assistant</span>
     </div>
 
     <div id="n8n-chat"></div>
@@ -725,176 +538,130 @@ body {
 
 
 
-<!-- =================================
-     WIDGETS
-================================= -->
+<!-- WIDGETS -->
 
 <aside class="widgets">
 
 
-  <!-- CLIMA -->
+<!-- HORA -->
 
-  <section class="widget">
+<section class="widget">
 
-    <div class="widget-title">
-      ☀ CLIMA
-    </div>
+  <div class="widget-title">
+    ◷ HORA
+  </div>
+
+  <div
+    class="time-value"
+    id="currentTime"
+  >
+    --:--
+  </div>
+
+  <div
+    class="date-value"
+    id="currentDate"
+  >
+  </div>
+
+</section>
 
 
-    <div class="weather-main">
 
-      <div
-        class="weather-temp"
-        id="weatherTemp"
-      >
-        --
-      </div>
+<!-- CLIMA -->
+
+<section class="widget">
+
+  <div class="widget-title">
+    ☀ CLIMA
+  </div>
 
 
-      <div
-        class="weather-icon"
-        id="weatherIcon"
-      >
-        ☀
-      </div>
-
-    </div>
-
+  <div class="weather-main">
 
     <div
-      class="weather-description"
-      id="weatherDescription"
+      class="weather-temp"
+      id="weatherTemp"
     >
-      Cargando clima...
+      --
     </div>
 
-
-    <div class="weather-info">
-
-      <div>
-        Ciudad de México
-      </div>
-
-      <div
-        id="weatherWind"
-      >
-        Viento --
-      </div>
-
-      <div
-        id="weatherMax"
-      >
-        Máx. --
-      </div>
-
-      <div
-        id="weatherMin"
-      >
-        Mín. --
-      </div>
-
+    <div
+      class="weather-icon"
+      id="weatherIcon"
+    >
+      ☀
     </div>
 
-  </section>
+  </div>
 
 
+  <div
+    class="weather-description"
+    id="weatherDescription"
+  >
+    Cargando clima...
+  </div>
 
-  <!-- NOTICIAS -->
 
-  <section class="widget">
+  <div class="weather-info">
 
-    <div class="widget-title">
-      ▤ NOTICIAS DESTACADAS
+    <div>Ciudad de México</div>
+
+    <div id="weatherWind">
+      Viento --
     </div>
 
-
-    <div class="news-item">
-
-      <div class="news-title">
-        Noticias generales
-      </div>
-
-      <div class="news-meta">
-        Widget preparado para conexión
-      </div>
-
+    <div id="weatherMax">
+      Máx. --
     </div>
 
-
-    <div class="news-item">
-
-      <div class="news-title">
-        Inteligencia artificial y tecnología
-      </div>
-
-      <div class="news-meta">
-        Próxima integración
-      </div>
-
+    <div id="weatherMin">
+      Mín. --
     </div>
 
+  </div>
 
-    <div class="news-item">
+</section>
 
-      <div class="news-title">
-        Economía y mercados
-      </div>
 
-      <div class="news-meta">
-        Próxima integración
-      </div>
 
+<!-- NOTICIAS -->
+
+<section class="widget">
+
+  <div class="widget-title">
+    ▤ NOTICIAS
+  </div>
+
+  <div id="news">
+    <div class="news-meta">
+      Cargando noticias...
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- MERCADOS -->
+
+<section class="widget">
+
+  <div class="widget-title">
+    ↗ MERCADOS
+  </div>
+
+  <div id="markets">
+
+    <div class="news-meta">
+      Cargando mercados...
     </div>
 
-  </section>
+  </div>
 
+</section>
 
-
-  <!-- MERCADOS -->
-
-  <section class="widget">
-
-    <div class="widget-title">
-      ↗ BOLSA / MERCADOS
-    </div>
-
-
-    <div class="market-row">
-
-      <span>S&P 500</span>
-      <span>—</span>
-      <span class="market-change">—</span>
-
-    </div>
-
-
-    <div class="market-row">
-
-      <span>NASDAQ</span>
-      <span>—</span>
-      <span class="market-change">—</span>
-
-    </div>
-
-
-    <div class="market-row">
-
-      <span>Dow Jones</span>
-      <span>—</span>
-      <span class="market-change">—</span>
-
-    </div>
-
-
-    <div class="market-row">
-
-      <span>IPC México</span>
-      <span>—</span>
-      <span class="market-change">—</span>
-
-    </div>
-
-  </section>
 
 </aside>
 
@@ -902,10 +669,6 @@ body {
 </div>
 
 
-
-<!-- =================================
-     MICRÓFONO
-================================= -->
 
 <button
   id="voiceButton"
@@ -923,26 +686,22 @@ import { createChat } from
 
 
 
-/* =================================
-   CHAT N8N
-================================= */
+/* ============================
+   N8N CHAT
+============================ */
 
 createChat({
 
   webhookUrl:
   'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
 
-  target:
-  '#n8n-chat',
+  target: '#n8n-chat',
 
-  mode:
-  'fullscreen',
+  mode: 'fullscreen',
 
-  loadPreviousSession:
-  false,
+  loadPreviousSession: false,
 
-  defaultLanguage:
-  'es',
+  defaultLanguage: 'es',
 
   initialMessages: [
     'Hola, soy Singularity. ¿En qué puedo ayudarte?'
@@ -952,14 +711,11 @@ createChat({
 
     es: {
 
-      title:
-      '',
+      title: '',
 
-      subtitle:
-      '',
+      subtitle: '',
 
-      footer:
-      '',
+      footer: '',
 
       getStarted:
       'Nueva conversación',
@@ -975,9 +731,71 @@ createChat({
 
 
 
-/* =================================
+/* ============================
+   HORA REAL
+============================ */
+
+function actualizarHora() {
+
+  const ahora = new Date();
+
+
+  document.getElementById(
+    'currentTime'
+  ).textContent =
+    new Intl.DateTimeFormat(
+      'es-MX',
+      {
+        timeZone:
+          'America/Mexico_City',
+
+        hour:
+          '2-digit',
+
+        minute:
+          '2-digit',
+
+        hour12:
+          false
+      }
+    ).format(ahora);
+
+
+  document.getElementById(
+    'currentDate'
+  ).textContent =
+    new Intl.DateTimeFormat(
+      'es-MX',
+      {
+        timeZone:
+          'America/Mexico_City',
+
+        weekday:
+          'long',
+
+        day:
+          'numeric',
+
+        month:
+          'long'
+      }
+    ).format(ahora);
+
+}
+
+
+actualizarHora();
+
+setInterval(
+  actualizarHora,
+  30000
+);
+
+
+
+/* ============================
    CLIMA REAL
-================================= */
+============================ */
 
 async function cargarClima() {
 
@@ -1040,15 +858,11 @@ async function cargarClima() {
     let descripcion =
       'Despejado';
 
-
     let icono =
       '☀';
 
 
-    if (
-      code >= 1 &&
-      code <= 3
-    ) {
+    if (code >= 1 && code <= 3) {
 
       descripcion =
         'Parcialmente nublado';
@@ -1057,7 +871,6 @@ async function cargarClima() {
         '⛅';
 
     }
-
 
     else if (
       code >= 45 &&
@@ -1072,10 +885,7 @@ async function cargarClima() {
 
     }
 
-
-    else if (
-      code >= 51
-    ) {
+    else if (code >= 51) {
 
       descripcion =
         'Lluvia';
@@ -1099,8 +909,7 @@ async function cargarClima() {
 
   }
 
-
-  catch (error) {
+  catch {
 
     document.getElementById(
       'weatherDescription'
@@ -1116,9 +925,343 @@ cargarClima();
 
 
 
-/* =================================
+/* ============================
+   NOTICIAS REALES
+============================ */
+
+async function cargarNoticias() {
+
+  const contenedor =
+    document.getElementById(
+      'news'
+    );
+
+
+  try {
+
+    const feed =
+      'https://news.google.com/rss?hl=es-419&gl=MX&ceid=MX:es-419';
+
+
+    const url =
+      'https://api.rss2json.com/v1/api.json?rss_url=' +
+      encodeURIComponent(feed);
+
+
+    const response =
+      await fetch(url);
+
+
+    const data =
+      await response.json();
+
+
+    if (
+      data.status !== 'ok' ||
+      !data.items
+    ) {
+      throw new Error();
+    }
+
+
+    contenedor.innerHTML = '';
+
+
+    data.items
+      .slice(0,4)
+      .forEach(
+        item => {
+
+          const link =
+            document.createElement(
+              'a'
+            );
+
+
+          link.className =
+            'news-item';
+
+
+          link.href =
+            item.link;
+
+
+          link.target =
+            '_blank';
+
+
+          const fecha =
+            new Date(
+              item.pubDate
+            );
+
+
+          link.innerHTML =
+            '<div class="news-title">' +
+            item.title +
+            '</div>' +
+
+            '<div class="news-meta">' +
+            fecha.toLocaleTimeString(
+              'es-MX',
+              {
+                hour:
+                  '2-digit',
+
+                minute:
+                  '2-digit'
+              }
+            ) +
+            '</div>';
+
+
+          contenedor.appendChild(
+            link
+          );
+
+        }
+      );
+
+  }
+
+  catch {
+
+    contenedor.innerHTML =
+      '<div class="news-meta">Noticias no disponibles</div>';
+
+  }
+
+}
+
+
+cargarNoticias();
+
+
+
+/* ============================
+   MERCADOS REALES
+============================ */
+
+const mercados = [
+
+  {
+    nombre: 'S&P 500',
+    simbolo: '^GSPC'
+  },
+
+  {
+    nombre: 'NASDAQ',
+    simbolo: '^IXIC'
+  },
+
+  {
+    nombre: 'Dow Jones',
+    simbolo: '^DJI'
+  },
+
+  {
+    nombre: 'IPC México',
+    simbolo: '^MXX'
+  }
+
+];
+
+
+async function obtenerMercado(
+  mercado
+) {
+
+  const yahoo =
+    'https://query1.finance.yahoo.com/v8/finance/chart/' +
+    encodeURIComponent(
+      mercado.simbolo
+    ) +
+    '?range=5d&interval=1d';
+
+
+  let response;
+
+
+  try {
+
+    response =
+      await fetch(
+        yahoo
+      );
+
+  }
+
+  catch {
+
+    const proxy =
+      'https://api.allorigins.win/raw?url=' +
+      encodeURIComponent(
+        yahoo
+      );
+
+
+    response =
+      await fetch(
+        proxy
+      );
+
+  }
+
+
+  const data =
+    await response.json();
+
+
+  const resultado =
+    data.chart.result[0];
+
+
+  const cierres =
+    resultado.indicators.quote[0]
+      .close
+      .filter(
+        valor =>
+          valor !== null
+      );
+
+
+  const ultimo =
+    cierres[
+      cierres.length - 1
+    ];
+
+
+  const anterior =
+    cierres[
+      cierres.length - 2
+    ];
+
+
+  const cambio =
+    (
+      (
+        ultimo -
+        anterior
+      )
+      /
+      anterior
+    )
+    *
+    100;
+
+
+  return {
+
+    nombre:
+      mercado.nombre,
+
+    ultimo:
+      ultimo,
+
+    cambio:
+      cambio
+
+  };
+
+}
+
+
+
+async function cargarMercados() {
+
+  const contenedor =
+    document.getElementById(
+      'markets'
+    );
+
+
+  try {
+
+    const resultados =
+      await Promise.all(
+        mercados.map(
+          obtenerMercado
+        )
+      );
+
+
+    contenedor.innerHTML = '';
+
+
+    resultados.forEach(
+      mercado => {
+
+        const fila =
+          document.createElement(
+            'div'
+          );
+
+
+        fila.className =
+          'market-row';
+
+
+        const clase =
+          mercado.cambio >= 0
+          ? 'up'
+          : 'down';
+
+
+        const signo =
+          mercado.cambio >= 0
+          ? '+'
+          : '';
+
+
+        fila.innerHTML =
+
+          '<span>' +
+          mercado.nombre +
+          '</span>' +
+
+          '<span class="market-price">' +
+          mercado.ultimo.toLocaleString(
+            'es-MX',
+            {
+              maximumFractionDigits: 2
+            }
+          ) +
+          '</span>' +
+
+          '<span class="market-change ' +
+          clase +
+          '">' +
+          signo +
+          mercado.cambio.toFixed(2) +
+          '%</span>';
+
+
+        contenedor.appendChild(
+          fila
+        );
+
+      }
+    );
+
+  }
+
+  catch {
+
+    contenedor.innerHTML =
+      '<div class="news-meta">Mercados no disponibles</div>';
+
+  }
+
+}
+
+
+cargarMercados();
+
+
+
+/* ============================
    VOZ
-================================= */
+============================ */
 
 const boton =
 document.getElementById(
@@ -1131,7 +1274,6 @@ window.SpeechRecognition ||
 window.webkitSpeechRecognition;
 
 
-
 function buscarInput() {
 
   return document.querySelector(
@@ -1139,7 +1281,6 @@ function buscarInput() {
   );
 
 }
-
 
 
 function buscarEnviar() {
@@ -1151,13 +1292,11 @@ function buscarEnviar() {
 }
 
 
-
 if (!SpeechRecognition) {
 
   boton.disabled = true;
 
 }
-
 
 else {
 
@@ -1168,14 +1307,11 @@ else {
   recognition.lang =
     'es-MX';
 
-
   recognition.continuous =
     false;
 
-
   recognition.interimResults =
     false;
-
 
 
   boton.onclick =
@@ -1184,21 +1320,17 @@ else {
     boton.textContent =
       '●';
 
-
     boton.classList.add(
       'listening'
     );
-
 
     recognition.start();
 
   };
 
 
-
   recognition.onresult =
   event => {
-
 
     const mensaje =
       event.results[0][0]
@@ -1218,26 +1350,22 @@ else {
 
 
     input.dispatchEvent(
-
       new Event(
         'input',
         {
           bubbles: true
         }
       )
-
     );
 
 
     input.dispatchEvent(
-
       new Event(
         'change',
         {
           bubbles: true
         }
       )
-
     );
 
 
@@ -1253,7 +1381,6 @@ else {
           enviar.click();
 
         }
-
 
         else {
 
@@ -1279,20 +1406,17 @@ else {
   };
 
 
-
   recognition.onend =
   () => {
 
     boton.textContent =
       '🎤';
 
-
     boton.classList.remove(
       'listening'
     );
 
   };
-
 
 
   recognition.onerror =
