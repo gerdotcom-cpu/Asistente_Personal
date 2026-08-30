@@ -431,7 +431,6 @@ html, body {
   #voiceButton {
     right: 350px;
   }
-
 }
 
 @media (max-width: 1050px) {
@@ -447,7 +446,6 @@ html, body {
   #voiceButton {
     right: 38px;
   }
-
 }
 
 @media (max-width: 700px) {
@@ -468,7 +466,6 @@ html, body {
   .chat-card {
     border-radius: 0;
   }
-
 }
 
 </style>
@@ -477,9 +474,7 @@ html, body {
 
 <body>
 
-
 <div class="app">
-
 
 <!-- SIDEBAR -->
 
@@ -490,7 +485,6 @@ html, body {
   <div class="logo-title">
     SINGULARITY
   </div>
-
 
   <div class="nav">
 
@@ -510,14 +504,11 @@ html, body {
 
   </div>
 
-
   <div class="sidebar-bottom">
     <div class="online-dot"></div>
   </div>
 
 </aside>
-
-
 
 <!-- CHAT -->
 
@@ -526,8 +517,7 @@ html, body {
   <div class="chat-card">
 
     <div class="chat-brand">
-      SINGULARITY
-      <span>— AI Personal Assistant</span>
+      SINGULARITY <span>- AI Personal Assistant</span>
     </div>
 
     <div id="n8n-chat"></div>
@@ -536,12 +526,9 @@ html, body {
 
 </main>
 
-
-
 <!-- WIDGETS -->
 
 <aside class="widgets">
-
 
 <!-- HORA -->
 
@@ -551,22 +538,13 @@ html, body {
     ◷ HORA
   </div>
 
-  <div
-    class="time-value"
-    id="currentTime"
-  >
+  <div class="time-value" id="currentTime">
     --:--
   </div>
 
-  <div
-    class="date-value"
-    id="currentDate"
-  >
-  </div>
+  <div class="date-value" id="currentDate"></div>
 
 </section>
-
-
 
 <!-- CLIMA -->
 
@@ -576,33 +554,21 @@ html, body {
     ☀ CLIMA
   </div>
 
-
   <div class="weather-main">
 
-    <div
-      class="weather-temp"
-      id="weatherTemp"
-    >
+    <div class="weather-temp" id="weatherTemp">
       --
     </div>
 
-    <div
-      class="weather-icon"
-      id="weatherIcon"
-    >
+    <div class="weather-icon" id="weatherIcon">
       ☀
     </div>
 
   </div>
 
-
-  <div
-    class="weather-description"
-    id="weatherDescription"
-  >
+  <div class="weather-description" id="weatherDescription">
     Cargando clima...
   </div>
-
 
   <div class="weather-info">
 
@@ -624,8 +590,6 @@ html, body {
 
 </section>
 
-
-
 <!-- NOTICIAS -->
 
 <section class="widget">
@@ -641,8 +605,6 @@ html, body {
   </div>
 
 </section>
-
-
 
 <!-- MERCADOS -->
 
@@ -662,29 +624,18 @@ html, body {
 
 </section>
 
-
 </aside>
-
 
 </div>
 
-
-
-<button
-  id="voiceButton"
-  title="Hablar"
->
+<button id="voiceButton" title="Hablar">
 🎤
 </button>
-
-
 
 <script type="module">
 
 import { createChat } from
 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-
 
 /* ============================
    N8N CHAT
@@ -729,8 +680,6 @@ createChat({
 
 });
 
-
-
 /* ============================
    HORA REAL
 ============================ */
@@ -738,7 +687,6 @@ createChat({
 function actualizarHora() {
 
   const ahora = new Date();
-
 
   document.getElementById(
     'currentTime'
@@ -760,7 +708,6 @@ function actualizarHora() {
       }
     ).format(ahora);
 
-
   document.getElementById(
     'currentDate'
   ).textContent =
@@ -780,9 +727,7 @@ function actualizarHora() {
           'long'
       }
     ).format(ahora);
-
 }
-
 
 actualizarHora();
 
@@ -790,8 +735,6 @@ setInterval(
   actualizarHora,
   30000
 );
-
-
 
 /* ============================
    CLIMA REAL
@@ -804,14 +747,11 @@ async function cargarClima() {
     const url =
     'https://api.open-meteo.com/v1/forecast?latitude=19.4326&longitude=-99.1332&current=temperature_2m,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=America%2FMexico_City';
 
-
     const response =
       await fetch(url);
 
-
     const data =
       await response.json();
-
 
     document.getElementById(
       'weatherTemp'
@@ -819,7 +759,6 @@ async function cargarClima() {
       Math.round(
         data.current.temperature_2m
       ) + '°C';
-
 
     document.getElementById(
       'weatherWind'
@@ -830,7 +769,6 @@ async function cargarClima() {
       ) +
       ' km/h';
 
-
     document.getElementById(
       'weatherMax'
     ).textContent =
@@ -839,7 +777,6 @@ async function cargarClima() {
         data.daily.temperature_2m_max[0]
       ) +
       '°';
-
 
     document.getElementById(
       'weatherMin'
@@ -850,17 +787,14 @@ async function cargarClima() {
       ) +
       '°';
 
-
     const code =
       data.current.weather_code;
-
 
     let descripcion =
       'Despejado';
 
     let icono =
       '☀';
-
 
     if (code >= 1 && code <= 3) {
 
@@ -869,7 +803,6 @@ async function cargarClima() {
 
       icono =
         '⛅';
-
     }
 
     else if (
@@ -882,7 +815,6 @@ async function cargarClima() {
 
       icono =
         '☁';
-
     }
 
     else if (code >= 51) {
@@ -892,21 +824,17 @@ async function cargarClima() {
 
       icono =
         '🌧';
-
     }
-
 
     document.getElementById(
       'weatherDescription'
     ).textContent =
       descripcion;
 
-
     document.getElementById(
       'weatherIcon'
     ).textContent =
       icono;
-
   }
 
   catch {
@@ -915,46 +843,34 @@ async function cargarClima() {
       'weatherDescription'
     ).textContent =
       'Clima no disponible';
-
   }
-
 }
-
 
 cargarClima();
 
-
-
 /* ============================
-   NOTICIAS REALES
+   NOTICIAS
 ============================ */
 
 async function cargarNoticias() {
 
   const contenedor =
-    document.getElementById(
-      'news'
-    );
-
+    document.getElementById('news');
 
   try {
 
     const feed =
       'https://news.google.com/rss?hl=es-419&gl=MX&ceid=MX:es-419';
 
-
     const url =
       'https://api.rss2json.com/v1/api.json?rss_url=' +
       encodeURIComponent(feed);
 
-
     const response =
       await fetch(url);
 
-
     const data =
       await response.json();
-
 
     if (
       data.status !== 'ok' ||
@@ -963,64 +879,44 @@ async function cargarNoticias() {
       throw new Error();
     }
 
-
     contenedor.innerHTML = '';
-
 
     data.items
       .slice(0,4)
-      .forEach(
-        item => {
+      .forEach(item => {
 
-          const link =
-            document.createElement(
-              'a'
-            );
+        const link =
+          document.createElement('a');
 
+        link.className =
+          'news-item';
 
-          link.className =
-            'news-item';
+        link.href =
+          item.link;
 
+        link.target =
+          '_blank';
 
-          link.href =
-            item.link;
+        const fecha =
+          new Date(item.pubDate);
 
+        link.innerHTML =
+          '<div class="news-title">' +
+          item.title +
+          '</div>' +
 
-          link.target =
-            '_blank';
+          '<div class="news-meta">' +
+          fecha.toLocaleTimeString(
+            'es-MX',
+            {
+              hour: '2-digit',
+              minute: '2-digit'
+            }
+          ) +
+          '</div>';
 
-
-          const fecha =
-            new Date(
-              item.pubDate
-            );
-
-
-          link.innerHTML =
-            '<div class="news-title">' +
-            item.title +
-            '</div>' +
-
-            '<div class="news-meta">' +
-            fecha.toLocaleTimeString(
-              'es-MX',
-              {
-                hour:
-                  '2-digit',
-
-                minute:
-                  '2-digit'
-              }
-            ) +
-            '</div>';
-
-
-          contenedor.appendChild(
-            link
-          );
-
-        }
-      );
+        contenedor.appendChild(link);
+      });
 
   }
 
@@ -1028,18 +924,13 @@ async function cargarNoticias() {
 
     contenedor.innerHTML =
       '<div class="news-meta">Noticias no disponibles</div>';
-
   }
-
 }
-
 
 cargarNoticias();
 
-
-
 /* ============================
-   MERCADOS REALES
+   MERCADOS
 ============================ */
 
 const mercados = [
@@ -1066,10 +957,7 @@ const mercados = [
 
 ];
 
-
-async function obtenerMercado(
-  mercado
-) {
+async function obtenerMercado(mercado) {
 
   const yahoo =
     'https://query1.finance.yahoo.com/v8/finance/chart/' +
@@ -1078,16 +966,15 @@ async function obtenerMercado(
     ) +
     '?range=5d&interval=1d';
 
-
   let response;
-
 
   try {
 
     response =
-      await fetch(
-        yahoo
-      );
+      await fetch(yahoo);
+
+    if (!response.ok)
+      throw new Error();
 
   }
 
@@ -1095,26 +982,17 @@ async function obtenerMercado(
 
     const proxy =
       'https://api.allorigins.win/raw?url=' +
-      encodeURIComponent(
-        yahoo
-      );
-
+      encodeURIComponent(yahoo);
 
     response =
-      await fetch(
-        proxy
-      );
-
+      await fetch(proxy);
   }
-
 
   const data =
     await response.json();
 
-
   const resultado =
     data.chart.result[0];
-
 
   const cierres =
     resultado.indicators.quote[0]
@@ -1124,18 +1002,15 @@ async function obtenerMercado(
           valor !== null
       );
 
-
   const ultimo =
     cierres[
       cierres.length - 1
     ];
 
-
   const anterior =
     cierres[
       cierres.length - 2
     ];
-
 
   const cambio =
     (
@@ -1149,7 +1024,6 @@ async function obtenerMercado(
     *
     100;
 
-
   return {
 
     nombre:
@@ -1162,10 +1036,7 @@ async function obtenerMercado(
       cambio
 
   };
-
 }
-
-
 
 async function cargarMercados() {
 
@@ -1173,7 +1044,6 @@ async function cargarMercados() {
     document.getElementById(
       'markets'
     );
-
 
   try {
 
@@ -1184,9 +1054,7 @@ async function cargarMercados() {
         )
       );
 
-
     contenedor.innerHTML = '';
-
 
     resultados.forEach(
       mercado => {
@@ -1196,22 +1064,18 @@ async function cargarMercados() {
             'div'
           );
 
-
         fila.className =
           'market-row';
-
 
         const clase =
           mercado.cambio >= 0
           ? 'up'
           : 'down';
 
-
         const signo =
           mercado.cambio >= 0
           ? '+'
           : '';
-
 
         fila.innerHTML =
 
@@ -1235,11 +1099,9 @@ async function cargarMercados() {
           mercado.cambio.toFixed(2) +
           '%</span>';
 
-
         contenedor.appendChild(
           fila
         );
-
       }
     );
 
@@ -1249,15 +1111,10 @@ async function cargarMercados() {
 
     contenedor.innerHTML =
       '<div class="news-meta">Mercados no disponibles</div>';
-
   }
-
 }
 
-
 cargarMercados();
-
-
 
 /* ============================
    VOZ
@@ -1268,29 +1125,23 @@ document.getElementById(
   'voiceButton'
 );
 
-
 const SpeechRecognition =
 window.SpeechRecognition ||
 window.webkitSpeechRecognition;
-
 
 function buscarInput() {
 
   return document.querySelector(
     '#n8n-chat textarea, #n8n-chat input[type="text"]'
   );
-
 }
-
 
 function buscarEnviar() {
 
   return document.querySelector(
     '#n8n-chat button[type="submit"]'
   );
-
 }
-
 
 if (!SpeechRecognition) {
 
@@ -1303,7 +1154,6 @@ else {
   const recognition =
     new SpeechRecognition();
 
-
   recognition.lang =
     'es-MX';
 
@@ -1312,7 +1162,6 @@ else {
 
   recognition.interimResults =
     false;
-
 
   boton.onclick =
   () => {
@@ -1325,9 +1174,7 @@ else {
     );
 
     recognition.start();
-
   };
-
 
   recognition.onresult =
   event => {
@@ -1336,18 +1183,14 @@ else {
       event.results[0][0]
       .transcript;
 
-
     const input =
       buscarInput();
-
 
     if (!input)
       return;
 
-
     input.value =
       mensaje;
-
 
     input.dispatchEvent(
       new Event(
@@ -1358,7 +1201,6 @@ else {
       )
     );
 
-
     input.dispatchEvent(
       new Event(
         'change',
@@ -1368,13 +1210,11 @@ else {
       )
     );
 
-
     setTimeout(
       () => {
 
         const enviar =
           buscarEnviar();
-
 
         if (enviar) {
 
@@ -1396,15 +1236,12 @@ else {
             )
 
           );
-
         }
 
       },
       300
     );
-
   };
-
 
   recognition.onend =
   () => {
@@ -1415,17 +1252,13 @@ else {
     boton.classList.remove(
       'listening'
     );
-
   };
-
 
   recognition.onerror =
     recognition.onend;
-
 }
 
 </script>
-
 
 </body>
 </html>
