@@ -12,41 +12,44 @@
   >
 
   <style>
-    html,
-    body,
-    #n8n-chat {
-      width: 100%;
-      height: 100%;
+    html, body {
       margin: 0;
+      height: 100%;
+    }
+
+    #voiceBar {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
     }
 
     #voiceButton {
-      position: fixed !important;
-      right: 24px !important;
-      bottom: 90px !important;
-      width: 60px !important;
-      height: 60px !important;
-      border: none !important;
-      border-radius: 50% !important;
-      background: white !important;
-      color: black !important;
-      font-size: 28px !important;
-      cursor: pointer !important;
-      z-index: 2147483647 !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,.30) !important;
+      font-size: 20px;
+      padding: 10px 25px;
+      cursor: pointer;
     }
 
-    #voiceButton.listening {
-      transform: scale(1.08);
+    #n8n-chat {
+      width: 100%;
+      height: calc(100vh - 70px);
     }
   </style>
 </head>
 
 <body>
 
-  <div id="n8n-chat"></div>
+  <div id="voiceBar">
+    <span>Asistente por voz</span>
+    <button id="voiceButton">🎤 HABLAR</button>
+  </div>
 
-  <button id="voiceButton" title="Hablar">🎤</button>
+  <div id="n8n-chat"></div>
 
   <script type="module">
 
@@ -58,11 +61,8 @@
         'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
 
       target: '#n8n-chat',
-
       mode: 'fullscreen',
-
       loadPreviousSession: false,
-
       defaultLanguage: 'es',
 
       initialMessages: [
@@ -81,33 +81,17 @@
     });
 
 
-    const boton = document.getElementById('voiceButton');
+    const button = document.getElementById('voiceButton');
 
     const SpeechRecognition =
       window.SpeechRecognition ||
       window.webkitSpeechRecognition;
 
 
-    function buscarInput() {
-      return document.querySelector(
-        '#n8n-chat textarea, #n8n-chat input[type="text"]'
-      );
-    }
-
-
-    function buscarBotonEnviar() {
-      return document.querySelector(
-        '#n8n-chat button[type="submit"]'
-      );
-    }
-
-
     if (!SpeechRecognition) {
 
-      boton.disabled = true;
-
-      boton.title =
-        'Este navegador no soporta reconocimiento de voz';
+      button.textContent = '🎤 VOZ NO DISPONIBLE';
+      button.disabled = true;
 
     } else {
 
@@ -118,14 +102,13 @@
       recognition.interimResults = false;
 
 
-      boton.addEventListener('click', () => {
+      button.onclick = () => {
 
-        boton.textContent = '🔴';
-        boton.classList.add('listening');
+        button.textContent = '🔴 ESCUCHANDO...';
 
         recognition.start();
 
-      });
+      };
 
 
       recognition.onresult = (event) => {
@@ -133,108 +116,22 @@
         const mensaje =
           event.results[0][0].transcript;
 
-        const input = buscarInput();
+        button.textContent = '🎤 HABLAR';
 
-        if (!input) return;
-
-        input.value = mensaje;
-
-        input.dispatchEvent(
-          new Event('input', { bubbles: true })
-        );
-
-        input.dispatchEvent(
-          new Event('change', { bubbles: true })
-        );
-
-        setTimeout(() => {
-
-          const enviar = buscarBotonEnviar();
-
-          if (enviar) {
-
-            enviar.click();
-
-          } else {
-
-            input.dispatchEvent(
-              new KeyboardEvent('keydown', {
-                key: 'Enter',
-                code: 'Enter',
-                bubbles: true
-              })
-            );
-
-          }
-
-        }, 300);
+        alert('Escuché: ' + mensaje);
 
       };
 
 
       recognition.onend = () => {
 
-        boton.textContent = '🎤';
-        boton.classList.remove('listening');
-
-      };
-
-
-      recognition.onerror = () => {
-
-        boton.textContent = '🎤';
-        boton.classList.remove('listening');
+        button.textContent = '🎤 HABLAR';
 
       };
 
     }
 
-
-    let ultimoTextoLeido = '';
-
-    const observer = new MutationObserver(() => {
-
-      const mensajes =
-        document.querySelectorAll(
-          '#n8n-chat .chat-message-from-bot'
-        );
-
-      if (!mensajes.length) return;
-
-      const ultimo =
-        mensajes[mensajes.length - 1];
-
-      const texto =
-        ultimo.innerText?.trim();
-
-      if (
-        !texto ||
-        texto === ultimoTextoLeido ||
-        texto.startsWith('Hola, soy tu asistente')
-      ) {
-        return;
-      }
-
-      ultimoTextoLeido = texto;
-
-      window.speechSynthesis.cancel();
-
-      const voz =
-        new SpeechSynthesisUtterance(texto);
-
-      voz.lang = 'es-MX';
-
-      window.speechSynthesis.speak(voz);
-
-    });
-
-
-    observer.observe(
-      document.getElementById('n8n-chat'),
-      {
-        childList: true,
-        subtree: true
-      }
-    );
-
   </script>
+
+</body>
+</html>
