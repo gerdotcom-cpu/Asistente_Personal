@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,40 +18,54 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f4f2;
+  background: #f5f5f3;
   color: #171717;
 }
 
 
-/* =========================
-   ESTRUCTURA
-========================= */
+/* =================================
+   ESTRUCTURA GENERAL
+================================= */
 
 .app {
   display: grid;
-  grid-template-columns: 94px minmax(600px, 1fr) 330px;
+  grid-template-columns: 118px minmax(0, 1fr) 360px;
+  gap: 16px;
+
   width: 100vw;
   height: 100vh;
+
+  padding: 14px;
 }
 
 
-/* =========================
+/* =================================
    SIDEBAR
-========================= */
+================================= */
 
 .sidebar {
 
+  height: calc(100vh - 28px);
+
+  border-radius: 30px;
+
   background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(190,150,72,.14),
+      transparent 22%
+    ),
     linear-gradient(
       180deg,
-      #101516 0%,
-      #07131b 100%
+      #11181b 0%,
+      #081319 100%
     );
 
   color: white;
@@ -61,46 +74,55 @@ html, body {
   flex-direction: column;
   align-items: center;
 
-  padding: 22px 12px;
+  padding: 24px 10px 20px;
 
-  border-right: 1px solid rgba(255,255,255,.05);
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 28px rgba(0,0,0,.10);
 }
 
 
+/* LOGO */
+
 .logo {
 
-  width: 54px;
-  height: 54px;
+  width: 58px;
+  height: 58px;
 
-  border: 1px solid #b89553;
+  border: 1px solid #b9944f;
   border-radius: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  margin-bottom: 12px;
+  color: #d7b56d;
 
-  color: #d1ad68;
+  font-size: 24px;
 
-  font-size: 22px;
+  margin-bottom: 10px;
 
   box-shadow:
-    0 0 22px rgba(195,158,89,.15);
+    0 0 22px rgba(185,148,79,.16);
 }
 
 
-.logo-text {
+.logo-title {
 
   font-size: 9px;
 
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
 
-  color: #d1ad68;
+  color: #d3b36f;
 
-  margin-bottom: 30px;
+  margin-bottom: 28px;
+
+  text-align: center;
 }
 
+
+/* ICONOS */
 
 .nav {
 
@@ -109,82 +131,89 @@ html, body {
   display: flex;
   flex-direction: column;
 
-  gap: 11px;
+  gap: 10px;
+
+  align-items: center;
 }
 
 
 .nav-item {
 
-  width: 66px;
-  height: 58px;
+  width: 72px;
+  height: 64px;
 
-  margin: auto;
+  border-radius: 17px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 13px;
-
   font-size: 25px;
 
-  color: #f3f3f3;
+  color: white;
 
-  opacity: .85;
+  opacity: .88;
 }
 
 
 .nav-item.active {
 
-  background: rgba(255,255,255,.08);
+  background:
+    rgba(255,255,255,.07);
 
-  color: #d6ad62;
+  border-left:
+    3px solid #c69d52;
 
-  box-shadow:
-    inset 3px 0 0 #c69e55;
+  color: #d6b268;
 }
 
 
 .nav-item:hover {
 
-  background: rgba(255,255,255,.06);
+  background:
+    rgba(255,255,255,.05);
 }
 
+
+/* ESTADO */
 
 .sidebar-bottom {
 
   margin-top: auto;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
 
-  gap: 14px;
+  padding-top: 18px;
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+
+  display: flex;
+  justify-content: center;
 }
 
 
 .online-dot {
 
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
 
   border-radius: 50%;
 
-  background: #59cc65;
+  background: #58cc66;
 }
 
 
-/* =========================
-   CHAT CENTRAL
-========================= */
+/* =================================
+   CENTRO
+================================= */
 
 .center {
 
-  background: #f7f7f5;
-
-  padding: 22px 18px 22px 22px;
-
   min-width: 0;
+  min-height: 0;
+
+  height: calc(100vh - 28px);
 }
 
 
@@ -195,9 +224,10 @@ html, body {
 
   background: white;
 
-  border: 1px solid #e5e5e1;
+  border:
+    1px solid #e4e4e0;
 
-  border-radius: 22px;
+  border-radius: 26px;
 
   overflow: hidden;
 
@@ -208,24 +238,28 @@ html, body {
 }
 
 
+/* MARCA */
+
 .chat-brand {
 
   position: absolute;
 
-  top: 22px;
-  left: 28px;
+  top: 18px;
+  left: 30px;
 
-  z-index: 20;
+  z-index: 30;
 
-  font-size: 18px;
+  font-size: 17px;
 
   letter-spacing: 7px;
 
-  color: #171717;
+  color: #141414;
 
   pointer-events: none;
 }
 
+
+/* CHAT */
 
 #n8n-chat {
 
@@ -234,31 +268,33 @@ html, body {
 }
 
 
-/* COLORES DEL CHAT N8N */
+/* =================================
+   COLORES CHAT N8N
+================================= */
 
 :root {
 
-  --chat--color-primary: #121a20;
+  --chat--color-primary: #11191f;
 
-  --chat--color-primary-shade-50: #0d1419;
+  --chat--color-primary-shade-50: #0c1419;
 
-  --chat--color-primary-shade-100: #080d11;
+  --chat--color-primary-shade-100: #070b0e;
 
-  --chat--color-secondary: #b58c49;
+  --chat--color-secondary: #b48a49;
 
   --chat--color-white: #ffffff;
 
   --chat--color-light: #f5f5f3;
 
-  --chat--color-light-shade-50: #ecece9;
+  --chat--color-light-shade-50: #eeeeeb;
 
-  --chat--color-light-shade-100: #deded9;
+  --chat--color-light-shade-100: #dfdfda;
 
-  --chat--color-medium: #aaa9a4;
+  --chat--color-medium: #a9a9a4;
 
   --chat--color-dark: #171717;
 
-  --chat--border-radius: 12px;
+  --chat--border-radius: 14px;
 
   --chat--window--width: 100%;
 
@@ -266,17 +302,15 @@ html, body {
 }
 
 
-/* =========================
+/* =================================
    WIDGETS DERECHA
-========================= */
+================================= */
 
 .widgets {
 
-  height: 100vh;
+  min-height: 0;
 
-  padding: 22px 20px 22px 0;
-
-  background: #f4f4f2;
+  height: calc(100vh - 28px);
 
   display: flex;
   flex-direction: column;
@@ -284,16 +318,23 @@ html, body {
   gap: 14px;
 
   overflow-y: auto;
+
+  padding-right: 2px;
+
+  scrollbar-width: thin;
 }
 
 
 .widget {
 
+  flex-shrink: 0;
+
   background: white;
 
-  border: 1px solid #e4e4e0;
+  border:
+    1px solid #e4e4e0;
 
-  border-radius: 18px;
+  border-radius: 22px;
 
   padding: 18px;
 
@@ -305,7 +346,6 @@ html, body {
 .widget-title {
 
   display: flex;
-
   align-items: center;
 
   gap: 9px;
@@ -316,7 +356,7 @@ html, body {
 
   font-weight: 700;
 
-  letter-spacing: .4px;
+  letter-spacing: .3px;
 }
 
 
@@ -325,12 +365,10 @@ html, body {
 .weather-main {
 
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 }
 
 
@@ -360,7 +398,8 @@ html, body {
 
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 8px;
 
@@ -376,7 +415,8 @@ html, body {
 
   padding: 10px 0;
 
-  border-bottom: 1px solid #eeeeeb;
+  border-bottom:
+    1px solid #eeeeeb;
 }
 
 
@@ -412,13 +452,15 @@ html, body {
 
   display: grid;
 
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns:
+    1fr auto auto;
 
   gap: 10px;
 
   padding: 10px 0;
 
-  border-bottom: 1px solid #eeeeeb;
+  border-bottom:
+    1px solid #eeeeeb;
 
   font-size: 12px;
 }
@@ -432,28 +474,28 @@ html, body {
 
 .market-change {
 
-  color: #168443;
+  color: #178441;
 
   font-weight: 600;
 }
 
 
-/* =========================
-   BOTÓN VOZ
-========================= */
+/* =================================
+   MICRÓFONO
+================================= */
 
 #voiceButton {
 
   position: fixed;
 
-  right: 370px;
+  right: 392px;
 
-  bottom: 42px;
+  bottom: 34px;
 
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
 
-  border: 0;
+  border: none;
 
   border-radius: 50%;
 
@@ -461,7 +503,7 @@ html, body {
 
   color: white;
 
-  font-size: 22px;
+  font-size: 23px;
 
   cursor: pointer;
 
@@ -469,33 +511,66 @@ html, body {
 
   box-shadow:
     0 7px 22px rgba(0,0,0,.20);
+
+  transition:
+    transform .15s ease;
+}
+
+
+#voiceButton:hover {
+
+  transform: translateY(-2px);
 }
 
 
 #voiceButton.listening {
 
-  background: #a53a35;
+  background: #a23c37;
 
   transform: scale(1.08);
 }
 
 
-/* =========================
+/* =================================
    RESPONSIVE
-========================= */
+================================= */
 
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
 
   .app {
-    grid-template-columns: 84px 1fr;
+
+    grid-template-columns:
+      100px minmax(0,1fr) 310px;
+
+    gap: 12px;
   }
 
+
+  #voiceButton {
+
+    right: 335px;
+  }
+}
+
+
+@media (max-width: 1050px) {
+
+  .app {
+
+    grid-template-columns:
+      90px minmax(0,1fr);
+  }
+
+
   .widgets {
+
     display: none;
   }
 
+
   #voiceButton {
-    right: 32px;
+
+    right: 34px;
   }
 }
 
@@ -503,25 +578,33 @@ html, body {
 @media (max-width: 700px) {
 
   .app {
+
     display: block;
+
+    padding: 0;
   }
 
+
   .sidebar {
+
     display: none;
   }
 
+
   .center {
-    padding: 0;
+
     height: 100vh;
   }
 
+
   .chat-card {
+
     border-radius: 0;
   }
+
 }
 
 </style>
-
 </head>
 
 
@@ -531,9 +614,7 @@ html, body {
 <div class="app">
 
 
-<!-- =====================
-     SIDEBAR
-===================== -->
+<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
@@ -541,38 +622,45 @@ html, body {
     ◎
   </div>
 
-  <div class="logo-text">
+  <div class="logo-title">
     SINGULARITY
   </div>
 
 
   <div class="nav">
 
-    <div class="nav-item active" title="Chat">
+    <div class="nav-item active"
+         title="Chat">
       ◌
     </div>
 
-    <div class="nav-item" title="Seguimiento To Do">
+    <div class="nav-item"
+         title="Seguimiento To Do">
       ✓
     </div>
 
-    <div class="nav-item" title="Gestión de agenda">
-      ◫
+    <div class="nav-item"
+         title="Seguimiento Acciones">
+      ▣
     </div>
 
-    <div class="nav-item" title="Gestión de correos">
+    <div class="nav-item"
+         title="Gestión de correos">
       ✉
     </div>
 
-    <div class="nav-item" title="Contactos">
-      ♙
+    <div class="nav-item"
+         title="Gestión de agenda">
+      ◫
     </div>
 
-    <div class="nav-item" title="Acciones">
+    <div class="nav-item"
+         title="Acciones">
       ⚡
     </div>
 
-    <div class="nav-item" title="Configuración">
+    <div class="nav-item"
+         title="Configuración">
       ⚙
     </div>
 
@@ -589,9 +677,7 @@ html, body {
 
 
 
-<!-- =====================
-     CHAT
-===================== -->
+<!-- CENTRO -->
 
 <main class="center">
 
@@ -609,9 +695,7 @@ html, body {
 
 
 
-<!-- =====================
-     WIDGETS
-===================== -->
+<!-- WIDGETS -->
 
 <aside class="widgets">
 
@@ -626,15 +710,22 @@ html, body {
 
     <div class="weather-main">
 
-      <div class="weather-temp" id="weatherTemp">
+      <div
+        class="weather-temp"
+        id="weatherTemp"
+      >
         --
       </div>
 
-      <div class="weather-icon" id="weatherIcon">
+      <div
+        class="weather-icon"
+        id="weatherIcon"
+      >
         ☀
       </div>
 
     </div>
+
 
     <div
       class="weather-description"
@@ -643,21 +734,28 @@ html, body {
       Cargando clima...
     </div>
 
+
     <div class="weather-info">
 
       <div>
         Ciudad de México
       </div>
 
-      <div id="weatherWind">
+      <div
+        id="weatherWind"
+      >
         Viento --
       </div>
 
-      <div id="weatherMax">
+      <div
+        id="weatherMax"
+      >
         Máx. --
       </div>
 
-      <div id="weatherMin">
+      <div
+        id="weatherMin"
+      >
         Mín. --
       </div>
 
@@ -675,42 +773,41 @@ html, body {
       ▤ NOTICIAS DESTACADAS
     </div>
 
-    <div id="news">
 
-      <div class="news-item">
+    <div class="news-item">
 
-        <div class="news-title">
-          Noticias generales
-        </div>
-
-        <div class="news-meta">
-          Widget preparado para conexión
-        </div>
-
+      <div class="news-title">
+        Noticias generales
       </div>
 
-      <div class="news-item">
-
-        <div class="news-title">
-          Inteligencia artificial y tecnología
-        </div>
-
-        <div class="news-meta">
-          Próxima integración
-        </div>
-
+      <div class="news-meta">
+        Widget preparado para conexión
       </div>
 
-      <div class="news-item">
+    </div>
 
-        <div class="news-title">
-          Economía y mercados
-        </div>
 
-        <div class="news-meta">
-          Próxima integración
-        </div>
+    <div class="news-item">
 
+      <div class="news-title">
+        Inteligencia artificial y tecnología
+      </div>
+
+      <div class="news-meta">
+        Próxima integración
+      </div>
+
+    </div>
+
+
+    <div class="news-item">
+
+      <div class="news-title">
+        Economía y mercados
+      </div>
+
+      <div class="news-meta">
+        Próxima integración
       </div>
 
     </div>
@@ -727,28 +824,40 @@ html, body {
       ↗ BOLSA / MERCADOS
     </div>
 
+
     <div class="market-row">
+
       <span>S&P 500</span>
       <span>—</span>
       <span class="market-change">—</span>
+
     </div>
 
+
     <div class="market-row">
+
       <span>NASDAQ</span>
       <span>—</span>
       <span class="market-change">—</span>
+
     </div>
 
+
     <div class="market-row">
+
       <span>Dow Jones</span>
       <span>—</span>
       <span class="market-change">—</span>
+
     </div>
 
+
     <div class="market-row">
+
       <span>IPC México</span>
       <span>—</span>
       <span class="market-change">—</span>
+
     </div>
 
   </section>
@@ -775,22 +884,27 @@ import { createChat } from
 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
 
-/* =====================
+
+/* =================================
    CHAT N8N
-===================== */
+================================= */
 
 createChat({
 
   webhookUrl:
   'https://gerardopustelnik.app.n8n.cloud/webhook/ad15c930-460c-4fca-a7bf-14d9774e4105/chat',
 
-  target: '#n8n-chat',
+  target:
+  '#n8n-chat',
 
-  mode: 'fullscreen',
+  mode:
+  'fullscreen',
 
-  loadPreviousSession: false,
+  loadPreviousSession:
+  false,
 
-  defaultLanguage: 'es',
+  defaultLanguage:
+  'es',
 
   initialMessages: [
     'Hola, soy Singularity. ¿En qué puedo ayudarte?'
@@ -800,13 +914,17 @@ createChat({
 
     es: {
 
-      title: '',
+      title:
+      '',
 
-      subtitle: '',
+      subtitle:
+      '',
 
-      footer: '',
+      footer:
+      '',
 
-      getStarted: 'Nueva conversación',
+      getStarted:
+      'Nueva conversación',
 
       inputPlaceholder:
       'Escribí o hablá con Singularity...'
@@ -819,9 +937,9 @@ createChat({
 
 
 
-/* =====================
+/* =================================
    CLIMA REAL
-===================== */
+================================= */
 
 async function cargarClima() {
 
@@ -830,23 +948,21 @@ async function cargarClima() {
     const url =
     'https://api.open-meteo.com/v1/forecast?latitude=19.4326&longitude=-99.1332&current=temperature_2m,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=America%2FMexico_City';
 
+
     const response =
       await fetch(url);
+
 
     const data =
       await response.json();
 
 
-    const temperatura =
-      Math.round(
-        data.current.temperature_2m
-      );
-
-
     document.getElementById(
       'weatherTemp'
     ).textContent =
-      temperatura + '°C';
+      Math.round(
+        data.current.temperature_2m
+      ) + '°C';
 
 
     document.getElementById(
@@ -886,11 +1002,15 @@ async function cargarClima() {
     let descripcion =
       'Despejado';
 
+
     let icono =
       '☀';
 
 
-    if (code >= 1 && code <= 3) {
+    if (
+      code >= 1 &&
+      code <= 3
+    ) {
 
       descripcion =
         'Parcialmente nublado';
@@ -901,7 +1021,10 @@ async function cargarClima() {
     }
 
 
-    if (code >= 45 && code <= 48) {
+    else if (
+      code >= 45 &&
+      code <= 48
+    ) {
 
       descripcion =
         'Neblina';
@@ -912,7 +1035,9 @@ async function cargarClima() {
     }
 
 
-    if (code >= 51) {
+    else if (
+      code >= 51
+    ) {
 
       descripcion =
         'Lluvia';
@@ -936,6 +1061,7 @@ async function cargarClima() {
 
   }
 
+
   catch (error) {
 
     document.getElementById(
@@ -952,9 +1078,9 @@ cargarClima();
 
 
 
-/* =====================
+/* =================================
    VOZ
-===================== */
+================================= */
 
 const boton =
 document.getElementById(
@@ -967,6 +1093,7 @@ window.SpeechRecognition ||
 window.webkitSpeechRecognition;
 
 
+
 function buscarInput() {
 
   return document.querySelector(
@@ -974,6 +1101,7 @@ function buscarInput() {
   );
 
 }
+
 
 
 function buscarEnviar() {
@@ -985,26 +1113,31 @@ function buscarEnviar() {
 }
 
 
+
 if (!SpeechRecognition) {
 
   boton.disabled = true;
 
 }
 
+
 else {
 
   const recognition =
-  new SpeechRecognition();
+    new SpeechRecognition();
 
 
   recognition.lang =
     'es-MX';
 
+
   recognition.continuous =
     false;
 
+
   recognition.interimResults =
     false;
+
 
 
   boton.onclick =
@@ -1013,25 +1146,29 @@ else {
     boton.textContent =
       '●';
 
+
     boton.classList.add(
       'listening'
     );
+
 
     recognition.start();
 
   };
 
 
+
   recognition.onresult =
   event => {
 
+
     const mensaje =
-    event.results[0][0]
-    .transcript;
+      event.results[0][0]
+      .transcript;
 
 
     const input =
-    buscarInput();
+      buscarInput();
 
 
     if (!input)
@@ -1043,22 +1180,26 @@ else {
 
 
     input.dispatchEvent(
+
       new Event(
         'input',
         {
           bubbles: true
         }
       )
+
     );
 
 
     input.dispatchEvent(
+
       new Event(
         'change',
         {
           bubbles: true
         }
       )
+
     );
 
 
@@ -1075,9 +1216,11 @@ else {
 
         }
 
+
         else {
 
           input.dispatchEvent(
+
             new KeyboardEvent(
               'keydown',
               {
@@ -1086,6 +1229,7 @@ else {
                 bubbles: true
               }
             )
+
           );
 
         }
@@ -1097,11 +1241,13 @@ else {
   };
 
 
+
   recognition.onend =
   () => {
 
     boton.textContent =
       '🎤';
+
 
     boton.classList.remove(
       'listening'
@@ -1110,8 +1256,9 @@ else {
   };
 
 
+
   recognition.onerror =
-  recognition.onend;
+    recognition.onend;
 
 }
 
